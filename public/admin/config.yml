@@ -4,15 +4,14 @@ backend:
 
 publish_mode: editorial_workflow
 
-# Enables local editing on localhost via `npx decap-server`.
-# Automatically ignored when the site is served from a non-localhost URL (production).
 local_backend: true
 
 media_folder: public/assets/uploads
 public_folder: /assets/uploads
 
-site_url: https://school-1.netlify.app
-display_url: https://school-1.netlify.app
+site_url: https://dashing-starburst-19f83f.netlify.app
+display_url: https://dashing-starburst-19f83f.netlify.app
+
 logo_url: /favicon.svg
 
 slug:
