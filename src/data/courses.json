@@ -1,0 +1,37 @@
+{
+  "enabled": true,
+  "items": [
+    {
+      "enabled": true,
+      "title": "Early Years",
+      "level": "Pre-K to Grade 2",
+      "description": "Play-based discovery, literacy foundations, numeracy, music, art, and social development.",
+      "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1000&q=80",
+      "alt": "Early Years students"
+    },
+    {
+      "enabled": true,
+      "title": "Primary School",
+      "level": "Grades 3 to 5",
+      "description": "Core academics, project work, reading fluency, creative expression, and teamwork.",
+      "image": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1000&q=80",
+      "alt": "Primary School students"
+    },
+    {
+      "enabled": true,
+      "title": "Middle School",
+      "level": "Grades 6 to 8",
+      "description": "Inquiry-led science, humanities, mathematics, languages, technology, and advisory support.",
+      "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80",
+      "alt": "Middle School students"
+    },
+    {
+      "enabled": true,
+      "title": "High School",
+      "level": "Grades 9 to 12",
+      "description": "College preparation, advanced electives, leadership pathways, internships, and career guidance.",
+      "image": "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1000&q=80",
+      "alt": "High School students"
+    }
+  ]
+}

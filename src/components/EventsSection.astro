@@ -1,0 +1,29 @@
+---
+import SectionHeader from "@components/SectionHeader.astro";
+const { data, items = [], limit } = Astro.props;
+const itemLimit = limit ?? data?.limit;
+const itemList = Array.isArray(items) ? items : items.items ?? [];
+const enabledItems = itemList.filter((event) => event.enabled !== false);
+const visibleEvents = itemLimit ? enabledItems.slice(0, itemLimit) : enabledItems;
+const formatDate = (date) => new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric" }).format(new Date(date));
+---
+
+{data?.enabled !== false && (
+  <section class="section section-soft">
+    <div class="container">
+      <SectionHeader eyebrow={data?.eyebrow} title={data?.title} text={data?.text} />
+      <div class="event-list">
+        {visibleEvents.map((event) => (
+          <article class="event-card">
+            {event.date && <time datetime={event.date}>{formatDate(event.date)}</time>}
+            <div>
+              <h3>{event.title}</h3>
+              {(event.time || event.location) && <p class="meta">{[event.time, event.location].filter(Boolean).join(" · ")}</p>}
+              {event.description && <p>{event.description}</p>}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

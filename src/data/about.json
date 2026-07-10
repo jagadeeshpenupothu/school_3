@@ -1,0 +1,26 @@
+{
+  "page": {
+    "title": "About",
+    "description": "Learn about school_1, our mission, campus, and values."
+  },
+  "hero": {
+    "enabled": true,
+    "eyebrow": "About school_1",
+    "title": "Purposeful education for capable, compassionate students.",
+    "text": "Our school blends academic discipline, creativity, wellbeing, and service so students can grow with confidence."
+  },
+  "story": {
+    "enabled": true,
+    "image": {
+      "src": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1400&q=82",
+      "alt": "Teacher helping students in a classroom"
+    },
+    "eyebrow": "Mission",
+    "title": "We help students learn deeply and live generously.",
+    "text": "school_1 is built around clear teaching, strong relationships, and opportunities that help students discover what they can contribute.",
+    "body": "The starter content is intentionally structured for future CMS editing. Replace this page copy with your school's story, values, accreditations, leadership message, and admissions details."
+  },
+  "statistics": { "enabled": true },
+  "features": { "enabled": true },
+  "cta": { "enabled": true }
+}

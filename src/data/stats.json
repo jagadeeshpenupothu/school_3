@@ -1,0 +1,9 @@
+{
+  "enabled": true,
+  "items": [
+    { "enabled": true, "value": "18:1", "label": "Student teacher ratio" },
+    { "enabled": true, "value": "42", "label": "Clubs and activities" },
+    { "enabled": true, "value": "96%", "label": "College placement" },
+    { "enabled": true, "value": "25+", "label": "Years of excellence" }
+  ]
+}

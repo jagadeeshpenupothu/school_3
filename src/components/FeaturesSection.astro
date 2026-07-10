@@ -1,0 +1,23 @@
+---
+import SectionHeader from "@components/SectionHeader.astro";
+const { data, items = [] } = Astro.props;
+const itemList = Array.isArray(items) ? items : items.items ?? [];
+const visibleFeatures = itemList.filter((feature) => feature.enabled !== false);
+---
+
+{data?.enabled !== false && (
+  <section class="section section-soft">
+    <div class="container">
+      <SectionHeader eyebrow={data?.eyebrow} title={data?.title} text={data?.text} />
+      <div class="feature-grid">
+        {visibleFeatures.map((feature) => (
+          <article class="feature-card">
+            {feature.icon && <div class={`icon-badge icon-${feature.icon}`} aria-hidden="true"></div>}
+            <h3>{feature.title}</h3>
+            {feature.description && <p>{feature.description}</p>}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

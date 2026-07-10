@@ -1,0 +1,78 @@
+{
+  "courses": {
+    "page": {
+      "title": "Courses",
+      "description": "Explore school programs from early years through high school."
+    },
+    "hero": {
+      "enabled": true,
+      "eyebrow": "Courses",
+      "title": "Academic programs for every stage of growth.",
+      "text": "Structured pathways support foundational skills, inquiry, leadership, and college readiness."
+    },
+    "courses": {
+      "enabled": true,
+      "eyebrow": "Academic pathways",
+      "title": "Programs for every stage",
+      "text": "A clear progression from early foundations to college and career readiness."
+    },
+    "cta": { "enabled": true }
+  },
+  "events": {
+    "page": {
+      "title": "Events",
+      "description": "View upcoming school events, open houses, and showcases."
+    },
+    "hero": {
+      "enabled": true,
+      "eyebrow": "Events",
+      "title": "Important dates for families and students.",
+      "text": "Stay connected with admissions events, student showcases, and community celebrations."
+    },
+    "events": {
+      "enabled": true,
+      "eyebrow": "Upcoming events",
+      "title": "Visit, connect, and celebrate",
+      "text": "Key dates for prospective families, students, and the wider community."
+    },
+    "cta": { "enabled": true }
+  },
+  "gallery": {
+    "page": {
+      "title": "Gallery",
+      "description": "See moments from campus learning, arts, athletics, and student life."
+    },
+    "hero": {
+      "enabled": true,
+      "eyebrow": "Gallery",
+      "title": "A look inside everyday learning at school_1.",
+      "text": "Use this page to showcase real campus photography as your school content grows."
+    },
+    "gallery": {
+      "enabled": true,
+      "eyebrow": "Campus life",
+      "title": "Moments from our learning community",
+      "text": "Classrooms, labs, arts, athletics, and student-led experiences."
+    },
+    "cta": { "enabled": true }
+  },
+  "teachers": {
+    "page": {
+      "title": "Teachers",
+      "description": "Meet the educators and mentors at school_1."
+    },
+    "hero": {
+      "enabled": true,
+      "eyebrow": "Faculty",
+      "title": "Teachers who bring expertise, warmth, and structure.",
+      "text": "Our educators guide students through strong academics and meaningful personal growth."
+    },
+    "staff": {
+      "enabled": true,
+      "eyebrow": "Faculty",
+      "title": "Experienced educators and mentors",
+      "text": "Teachers combine subject expertise with care, structure, and curiosity."
+    },
+    "cta": { "enabled": true }
+  }
+}

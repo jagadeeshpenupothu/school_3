@@ -1,0 +1,29 @@
+{
+  "enabled": true,
+  "items": [
+    {
+      "enabled": true,
+      "title": "Open House",
+      "date": "2026-08-15",
+      "time": "10:00 AM",
+      "location": "Main Campus",
+      "description": "Tour classrooms, meet faculty, and learn about admissions for the next school year."
+    },
+    {
+      "enabled": true,
+      "title": "Science Expo",
+      "date": "2026-09-12",
+      "time": "1:00 PM",
+      "location": "Innovation Lab",
+      "description": "Students present research projects, prototypes, and community science work."
+    },
+    {
+      "enabled": true,
+      "title": "Arts Evening",
+      "date": "2026-10-03",
+      "time": "6:30 PM",
+      "location": "Performing Arts Hall",
+      "description": "A showcase of student music, theater, visual arts, and digital media."
+    }
+  ]
+}

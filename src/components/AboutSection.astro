@@ -1,0 +1,28 @@
+---
+const { data } = Astro.props;
+const buttons = data?.buttons?.filter((button) => button.enabled !== false) ?? [];
+---
+
+{data?.enabled !== false && (
+  <section class="section">
+    <div class="container split-layout">
+      <div>
+        {data.eyebrow && <p class="eyebrow">{data.eyebrow}</p>}
+        {data.title && <h2>{data.title}</h2>}
+        {data.text && <p>{data.text}</p>}
+        {buttons.length > 0 && (
+          <div class="button-row">
+            {buttons.map((button) => (
+              <a class={`button button-${button.style ?? "primary"}`} href={button.href}>{button.label}</a>
+            ))}
+          </div>
+        )}
+      </div>
+      {data.image?.src && (
+        <div class="image-frame">
+          <img src={data.image.src} alt={data.image.alt ?? data.title} loading="lazy" />
+        </div>
+      )}
+    </div>
+  </section>
+)}

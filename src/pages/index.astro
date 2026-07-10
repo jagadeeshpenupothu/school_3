@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/Hero.astro";
+import AboutSection from "@components/AboutSection.astro";
+import FeaturesSection from "@components/FeaturesSection.astro";
+import CoursesSection from "@components/CoursesSection.astro";
+import StatsSection from "@components/StatsSection.astro";
+import TeachersSection from "@components/TeachersSection.astro";
+import Testimonials from "@components/Testimonials.astro";
+import GallerySection from "@components/GallerySection.astro";
+import EventsSection from "@components/EventsSection.astro";
+import CTASection from "@components/CTASection.astro";
+import home from "@data/home.json";
+import sections from "@data/sections.json";
+import courses from "@data/courses.json";
+import features from "@data/features.json";
+import stats from "@data/stats.json";
+import staff from "@data/staff.json";
+import testimonials from "@data/testimonials.json";
+import gallery from "@data/gallery.json";
+import events from "@data/events.json";
+---
+
+<BaseLayout title={home.page.title} description={home.page.description}>
+  {sections.hero?.enabled !== false && home.hero.enabled !== false && <Hero data={home.hero} stats={stats} />}
+  {sections.about?.enabled !== false && home.about.enabled !== false && <AboutSection data={home.about} />}
+  {sections.features?.enabled !== false && home.features.enabled !== false && <FeaturesSection data={home.features} items={features} />}
+  {sections.courses?.enabled !== false && home.courses.enabled !== false && <CoursesSection data={home.courses} items={courses} />}
+  {sections.statistics?.enabled !== false && home.statistics.enabled !== false && <StatsSection data={home.statistics} items={stats} />}
+  {sections.staff?.enabled !== false && home.staff.enabled !== false && <TeachersSection data={home.staff} items={staff} />}
+  {sections.testimonials?.enabled !== false && home.testimonials.enabled !== false && <Testimonials data={home.testimonials} items={testimonials} />}
+  {sections.gallery?.enabled !== false && home.gallery.enabled !== false && <GallerySection data={home.gallery} items={gallery} />}
+  {sections.events?.enabled !== false && home.events.enabled !== false && <EventsSection data={home.events} items={events} />}
+  {sections.cta?.enabled !== false && home.cta.enabled !== false && <CTASection data={home.cta} />}
+</BaseLayout>

@@ -1,0 +1,34 @@
+{
+  "enabled": true,
+  "brand": {
+    "enabled": true,
+    "showTagline": true
+  },
+  "columns": [
+    {
+      "enabled": true,
+      "title": "Explore",
+      "type": "navigation"
+    },
+    {
+      "enabled": true,
+      "title": "Contact",
+      "type": "contact",
+      "items": [
+        { "enabled": true, "field": "address" },
+        { "enabled": true, "field": "email" },
+        { "enabled": true, "field": "phone" }
+      ]
+    },
+    {
+      "enabled": true,
+      "title": "Follow",
+      "type": "social"
+    }
+  ],
+  "copyright": {
+    "enabled": true,
+    "prefix": "©",
+    "text": "All rights reserved."
+  }
+}

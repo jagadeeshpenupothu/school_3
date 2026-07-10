@@ -1,0 +1,84 @@
+---
+import Navbar from "@components/Navbar.astro";
+import Footer from "@components/Footer.astro";
+import site from "@data/site.json";
+import navigation from "@data/navigation.json";
+import footer from "@data/footer.json";
+import sections from "@data/sections.json";
+import theme from "@data/theme.json";
+import "@styles/global.css";
+
+const {
+  title = site.schoolName,
+  description = site.tagline
+} = Astro.props;
+
+const navigationItems = Array.isArray(navigation) ? navigation : navigation.items ?? [];
+const pageTitle = title === site.schoolName ? title : `${title} | ${site.schoolName}`;
+const c = theme.colors;
+const themeStyle = `
+  --ink: ${c.ink};
+  --muted: ${c.muted};
+  --line: ${c.line};
+  --paper: ${c.paper};
+  --soft: ${c.soft};
+  --primary: ${c.primary};
+  --primary-dark: ${c.primaryDark};
+  --primary-deep: ${c.primaryDeep};
+  --sky: ${c.secondary};
+  --amber: ${c.accent};
+  --coral: ${c.highlight};
+  --navbar-bg: ${c.navbarBackground};
+  --navbar-text: ${c.navbarText};
+  --footer-bg: ${c.footerBackground};
+  --footer-text: ${c.footerText};
+  --button-primary-text: ${c.buttonPrimaryText};
+  --button-light-bg: ${c.buttonLightBackground};
+  --button-light-text: ${c.buttonLightText};
+  --hero-overlay-start: ${theme.heroOverlay.start};
+  --hero-overlay-middle: ${theme.heroOverlay.middle};
+  --hero-overlay-end: ${theme.heroOverlay.end};
+  --hero-overlay-bottom: ${theme.heroOverlay.bottom};
+  --shadow: ${theme.shadows.default};
+  --shadow-strong: ${theme.shadows.strong};
+  --shadow-card: ${theme.shadows.card};
+  --radius: ${theme.layout.radius};
+  --container: ${theme.layout.container};
+`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href={site.favicon} />
+    <title>{pageTitle}</title>
+    <!-- Netlify Identity: handles admin invite acceptance and redirects logged-in users to /admin/ -->
+    <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script is:inline>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+  </head>
+  <body style={themeStyle}>
+    <a class="skip-link" href="#main">{site.labels.skipLink}</a>
+    {sections.navbar?.enabled !== false && <Navbar site={site} navigation={navigationItems} />}
+    <main id="main">
+      <slot />
+    </main>
+    {sections.footer?.enabled !== false && <Footer data={footer} site={site} navigation={navigationItems} />}
+  </body>
+</html>

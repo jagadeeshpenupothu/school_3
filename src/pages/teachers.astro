@@ -1,0 +1,18 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PageHero from "@components/PageHero.astro";
+import TeachersSection from "@components/TeachersSection.astro";
+import CTASection from "@components/CTASection.astro";
+import pages from "@data/pages.json";
+import home from "@data/home.json";
+import sections from "@data/sections.json";
+import staff from "@data/staff.json";
+
+const page = pages.teachers;
+---
+
+<BaseLayout title={page.page.title} description={page.page.description}>
+  <PageHero data={page.hero} />
+  {sections.staff?.enabled !== false && page.staff.enabled !== false && <TeachersSection data={page.staff} items={staff} />}
+  {sections.cta?.enabled !== false && page.cta.enabled !== false && <CTASection data={home.cta} />}
+</BaseLayout>

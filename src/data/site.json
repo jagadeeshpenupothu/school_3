@@ -1,0 +1,25 @@
+{
+  "schoolName": "school_1",
+  "tagline": "Future-ready learning with strong values.",
+  "logo": {
+    "text": "Z",
+    "image": "",
+    "alt": "school_1 logo"
+  },
+  "favicon": "/favicon.svg",
+  "labels": {
+    "skipLink": "Skip to content",
+    "toggleNavigation": "Toggle navigation",
+    "mainNavigation": "Main navigation",
+    "schoolStatistics": "School statistics"
+  },
+  "email": "hello@school1.edu",
+  "phone": "+91 98765 43210",
+  "address": "120 Academy Lane, Springfield, USA",
+  "hours": "Mon-Fri, 8:00 AM - 4:30 PM",
+  "social": [
+    { "enabled": true, "label": "Facebook", "url": "https://facebook.com", "icon": "facebook" },
+    { "enabled": true, "label": "Instagram", "url": "https://instagram.com", "icon": "instagram" },
+    { "enabled": true, "label": "LinkedIn", "url": "https://linkedin.com", "icon": "linkedin" }
+  ]
+}

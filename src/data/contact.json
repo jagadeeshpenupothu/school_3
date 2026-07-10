@@ -1,0 +1,39 @@
+{
+  "page": {
+    "title": "Contact",
+    "description": "Contact school_1 admissions and administration."
+  },
+  "hero": {
+    "enabled": true,
+    "eyebrow": "Contact",
+    "title": "Plan a visit or ask our admissions team a question.",
+    "text": "We are happy to help with programs, enrollment timelines, campus tours, and student support."
+  },
+  "contact": {
+    "enabled": true,
+    "officeTitle": "School office",
+    "showAddress": true,
+    "showEmail": true,
+    "showPhone": true,
+    "showHours": true
+  },
+  "form": {
+    "enabled": true,
+    "action": "#",
+    "method": "post",
+    "submitLabel": "Send Message",
+    "fields": [
+      { "enabled": true, "label": "Name", "name": "name", "type": "text", "autocomplete": "name", "required": true },
+      { "enabled": true, "label": "Email", "name": "email", "type": "email", "autocomplete": "email", "required": true },
+      {
+        "enabled": true,
+        "label": "Interested program",
+        "name": "program",
+        "type": "select",
+        "options": ["Early Years", "Primary School", "Middle School", "High School"],
+        "required": false
+      },
+      { "enabled": true, "label": "Message", "name": "message", "type": "textarea", "rows": 5, "required": true }
+    ]
+  }
+}

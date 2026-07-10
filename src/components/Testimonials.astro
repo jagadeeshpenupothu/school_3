@@ -1,0 +1,25 @@
+---
+import SectionHeader from "@components/SectionHeader.astro";
+const { data, items = [] } = Astro.props;
+const itemList = Array.isArray(items) ? items : items.items ?? [];
+const visibleTestimonials = itemList.filter((item) => item.enabled !== false);
+---
+
+{data?.enabled !== false && (
+  <section class="section">
+    <div class="container">
+      <SectionHeader eyebrow={data?.eyebrow} title={data?.title} text={data?.text} />
+      <div class="slider" aria-label={data?.ariaLabel}>
+        {visibleTestimonials.map((item) => (
+          <figure class="testimonial-card">
+            {item.quote && <blockquote>{item.quote}</blockquote>}
+            <figcaption>
+              <strong>{item.name}</strong>
+              {item.role && <span>{item.role}</span>}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

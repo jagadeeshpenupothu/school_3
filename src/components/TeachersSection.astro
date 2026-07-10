@@ -1,0 +1,26 @@
+---
+import SectionHeader from "@components/SectionHeader.astro";
+const { data, items = [], limit } = Astro.props;
+const itemLimit = limit ?? data?.limit;
+const itemList = Array.isArray(items) ? items : items.items ?? [];
+const enabledItems = itemList.filter((teacher) => teacher.enabled !== false);
+const visibleStaff = itemLimit ? enabledItems.slice(0, itemLimit) : enabledItems;
+---
+
+{data?.enabled !== false && (
+  <section class="section section-soft">
+    <div class="container">
+      <SectionHeader eyebrow={data?.eyebrow} title={data?.title} text={data?.text} />
+      <div class="teacher-grid">
+        {visibleStaff.map((teacher) => (
+          <article class="teacher-card">
+            {teacher.image && <img src={teacher.image} alt={teacher.alt ?? teacher.name} loading="lazy" />}
+            <h3>{teacher.name}</h3>
+            {teacher.role && <p class="meta">{teacher.role}</p>}
+            {teacher.bio && <p>{teacher.bio}</p>}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

@@ -1,0 +1,11 @@
+{
+  "enabled": true,
+  "items": [
+    { "enabled": true, "title": "Collaborative classroom", "image": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1000&q=80", "alt": "Students working together in a classroom" },
+    { "enabled": true, "title": "Science lab learning", "image": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1000&q=80", "alt": "Students learning in a science lab" },
+    { "enabled": true, "title": "Arts and performance", "image": "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=1000&q=80", "alt": "Student art supplies and creative work" },
+    { "enabled": true, "title": "Campus athletics", "image": "https://images.unsplash.com/photo-1547347298-4074fc3086f0?auto=format&fit=crop&w=1000&q=80", "alt": "Students playing athletics on campus" },
+    { "enabled": true, "title": "Library research", "image": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1000&q=80", "alt": "Students reading and researching in a library" },
+    { "enabled": true, "title": "Student leadership", "image": "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1000&q=80", "alt": "Students walking together on campus" }
+  ]
+}

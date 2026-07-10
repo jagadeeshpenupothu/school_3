@@ -1,0 +1,37 @@
+{
+  "enabled": true,
+  "items": [
+    {
+      "enabled": true,
+      "name": "Dr. Jagadeesh P",
+      "role": "Principal",
+      "bio": "Leads school strategy, academic excellence, and community partnerships.",
+      "image": "/assets/uploads/6_hu_84f008eb20437dca.webp",
+      "alt": "Dr. Amelia Carter"
+    },
+    {
+      "enabled": true,
+      "name": "Marcus Rivera",
+      "role": "Science Faculty",
+      "bio": "Builds hands-on STEM programs with labs, field research, and design challenges.",
+      "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80",
+      "alt": "Marcus Rivera"
+    },
+    {
+      "enabled": true,
+      "name": "Nora Patel",
+      "role": "Arts Coordinator",
+      "bio": "Guides visual arts, music, theater, and student exhibitions across grade levels.",
+      "image": "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=800&q=80",
+      "alt": "Nora Patel"
+    },
+    {
+      "enabled": true,
+      "name": "Ethan Brooks",
+      "role": "Student Wellness Lead",
+      "bio": "Supports advisory, counseling, athletics, and wellbeing programs.",
+      "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
+      "alt": "Ethan Brooks"
+    }
+  ]
+}

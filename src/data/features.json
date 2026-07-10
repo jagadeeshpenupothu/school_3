@@ -1,0 +1,23 @@
+{
+  "enabled": true,
+  "items": [
+    {
+      "enabled": true,
+      "title": "Personalized Learning",
+      "description": "Small class sizes and academic mentoring help every learner build confidence and mastery.",
+      "icon": "spark"
+    },
+    {
+      "enabled": true,
+      "title": "Modern Campus",
+      "description": "Flexible classrooms, science labs, arts spaces, and safe outdoor areas support active learning.",
+      "icon": "campus"
+    },
+    {
+      "enabled": true,
+      "title": "Whole Child Growth",
+      "description": "Academics, athletics, leadership, service, and wellbeing are built into the weekly rhythm.",
+      "icon": "growth"
+    }
+  ]
+}

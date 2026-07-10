@@ -1,0 +1,18 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PageHero from "@components/PageHero.astro";
+import CoursesSection from "@components/CoursesSection.astro";
+import CTASection from "@components/CTASection.astro";
+import pages from "@data/pages.json";
+import home from "@data/home.json";
+import sections from "@data/sections.json";
+import courses from "@data/courses.json";
+
+const page = pages.courses;
+---
+
+<BaseLayout title={page.page.title} description={page.page.description}>
+  <PageHero data={page.hero} />
+  {sections.courses?.enabled !== false && page.courses.enabled !== false && <CoursesSection data={page.courses} items={courses} />}
+  {sections.cta?.enabled !== false && page.cta.enabled !== false && <CTASection data={home.cta} />}
+</BaseLayout>

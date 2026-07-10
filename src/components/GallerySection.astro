@@ -1,0 +1,24 @@
+---
+import SectionHeader from "@components/SectionHeader.astro";
+const { data, items = [], limit } = Astro.props;
+const itemLimit = limit ?? data?.limit;
+const itemList = Array.isArray(items) ? items : items.items ?? [];
+const enabledItems = itemList.filter((item) => item.enabled !== false);
+const visibleGallery = itemLimit ? enabledItems.slice(0, itemLimit) : enabledItems;
+---
+
+{data?.enabled !== false && (
+  <section class="section">
+    <div class="container">
+      <SectionHeader eyebrow={data?.eyebrow} title={data?.title} text={data?.text} />
+      <div class="gallery-grid">
+        {visibleGallery.map((item) => (
+          <figure>
+            <img src={item.image} alt={item.alt ?? item.title} loading="lazy" />
+            {item.title && <figcaption>{item.title}</figcaption>}
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

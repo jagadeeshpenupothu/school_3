@@ -1,0 +1,28 @@
+---
+import SectionHeader from "@components/SectionHeader.astro";
+const { data, items = [], limit } = Astro.props;
+const itemLimit = limit ?? data?.limit;
+const itemList = Array.isArray(items) ? items : items.items ?? [];
+const enabledItems = itemList.filter((course) => course.enabled !== false);
+const visibleCourses = itemLimit ? enabledItems.slice(0, itemLimit) : enabledItems;
+---
+
+{data?.enabled !== false && (
+  <section class="section">
+    <div class="container">
+      <SectionHeader eyebrow={data?.eyebrow} title={data?.title} text={data?.text} />
+      <div class="card-grid">
+        {visibleCourses.map((course) => (
+          <article class="course-card">
+            {course.image && <img src={course.image} alt={course.alt ?? `${course.title} students`} loading="lazy" />}
+            <div>
+              {course.level && <p class="meta">{course.level}</p>}
+              <h3>{course.title}</h3>
+              {course.description && <p>{course.description}</p>}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

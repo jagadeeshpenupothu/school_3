@@ -1,0 +1,13 @@
+---
+const { data } = Astro.props;
+---
+
+{data?.enabled !== false && (
+  <section class="page-hero">
+    <div class="container">
+      {data.eyebrow && <p class="eyebrow">{data.eyebrow}</p>}
+      {data.title && <h1>{data.title}</h1>}
+      {data.text && <p>{data.text}</p>}
+    </div>
+  </section>
+)}

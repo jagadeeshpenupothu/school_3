@@ -1,0 +1,38 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PageHero from "@components/PageHero.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import StatsSection from "@components/StatsSection.astro";
+import FeaturesSection from "@components/FeaturesSection.astro";
+import CTASection from "@components/CTASection.astro";
+import about from "@data/about.json";
+import home from "@data/home.json";
+import sections from "@data/sections.json";
+import stats from "@data/stats.json";
+import features from "@data/features.json";
+---
+
+<BaseLayout title={about.page.title} description={about.page.description}>
+  <PageHero data={about.hero} />
+  {about.story.enabled !== false && (
+    <section class="section">
+    <div class="container split-layout">
+      <div class="image-frame">
+        <img src={about.story.image.src} alt={about.story.image.alt} loading="lazy" />
+      </div>
+      <div>
+        <SectionHeader
+          align="left"
+          eyebrow={about.story.eyebrow}
+          title={about.story.title}
+          text={about.story.text}
+        />
+        {about.story.body && <p>{about.story.body}</p>}
+      </div>
+    </div>
+    </section>
+  )}
+  {sections.statistics?.enabled !== false && about.statistics.enabled !== false && <StatsSection data={about.statistics} items={stats} />}
+  {sections.features?.enabled !== false && about.features.enabled !== false && <FeaturesSection data={home.features} items={features} />}
+  {sections.cta?.enabled !== false && about.cta.enabled !== false && <CTASection data={home.cta} />}
+</BaseLayout>

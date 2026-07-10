@@ -1,0 +1,18 @@
+---
+const { data, items = [] } = Astro.props;
+const itemList = Array.isArray(items) ? items : items.items ?? [];
+const visibleStats = itemList.filter((stat) => stat.enabled !== false);
+---
+
+{data?.enabled !== false && visibleStats.length > 0 && (
+  <section class="stats-band">
+    <div class="container stats-grid">
+      {visibleStats.map((stat) => (
+        <div>
+          <strong>{stat.value}</strong>
+          <span>{stat.label}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+)}

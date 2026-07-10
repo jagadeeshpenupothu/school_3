@@ -1,0 +1,19 @@
+---
+const { data } = Astro.props;
+const buttons = data?.buttons?.filter((button) => button.enabled !== false) ?? [];
+---
+
+{data?.enabled !== false && (
+  <section class="cta-section">
+    <div class="container cta-inner">
+      <div>
+        {data.eyebrow && <p class="eyebrow">{data.eyebrow}</p>}
+        {data.title && <h2>{data.title}</h2>}
+        {data.text && <p>{data.text}</p>}
+      </div>
+      {buttons.map((button) => (
+        <a class={`button button-${button.style ?? "light"}`} href={button.href}>{button.label}</a>
+      ))}
+    </div>
+  </section>
+)}

@@ -1,0 +1,45 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PageHero from "@components/PageHero.astro";
+import site from "@data/site.json";
+import contact from "@data/contact.json";
+import sections from "@data/sections.json";
+---
+
+<BaseLayout title={contact.page.title} description={contact.page.description}>
+  <PageHero data={contact.hero} />
+
+  {sections.contact?.enabled !== false && contact.contact.enabled !== false && (
+    <section class="section">
+    <div class="container contact-grid">
+      <div class="contact-panel">
+        <h2>{contact.contact.officeTitle}</h2>
+        {contact.contact.showAddress && <p>{site.address}</p>}
+        {contact.contact.showEmail && <p><a href={`mailto:${site.email}`}>{site.email}</a></p>}
+        {contact.contact.showPhone && <p><a href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>{site.phone}</a></p>}
+        {contact.contact.showHours && <p>{site.hours}</p>}
+      </div>
+
+      {contact.form.enabled !== false && (
+        <form class="contact-form" action={contact.form.action} method={contact.form.method}>
+          {contact.form.fields.filter((field) => field.enabled !== false).map((field) => (
+            <label>
+              {field.label}
+              {field.type === "textarea" ? (
+                <textarea name={field.name} rows={field.rows} required={field.required}></textarea>
+              ) : field.type === "select" ? (
+                <select name={field.name} required={field.required}>
+                  {field.options?.map((option) => <option>{option}</option>)}
+                </select>
+              ) : (
+                <input type={field.type} name={field.name} autocomplete={field.autocomplete} required={field.required} />
+              )}
+            </label>
+          ))}
+          <button class="button button-primary" type="submit">{contact.form.submitLabel}</button>
+        </form>
+      )}
+    </div>
+    </section>
+  )}
+</BaseLayout>

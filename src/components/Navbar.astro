@@ -1,0 +1,34 @@
+---
+const { site, navigation = [] } = Astro.props;
+const visibleNavigation = navigation.filter((item) => item.enabled !== false);
+const phoneHref = site?.phone?.replace(/[^\d+]/g, "");
+---
+
+<header class="site-header">
+  <div class="container nav-shell">
+    <a class="brand" href="/" aria-label={`${site.schoolName} home`}>
+      <span class="brand-mark">
+        {site.logo?.image ? <img src={site.logo.image} alt={site.logo.alt ?? site.schoolName} /> : site.logo?.text}
+      </span>
+      <span>{site.schoolName}</span>
+    </a>
+
+    <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label={site.labels?.toggleNavigation} />
+    <label class="nav-button" for="nav-toggle" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <nav class="nav-links" aria-label={site.labels?.mainNavigation}>
+      {visibleNavigation.map((item) => (
+        <a href={item.href}>
+          {item.icon && <span class={`nav-icon nav-icon-${item.icon}`} aria-hidden="true"></span>}
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    {site.phone && <a class="nav-call" href={`tel:${phoneHref}`}>{site.phone}</a>}
+  </div>
+</header>

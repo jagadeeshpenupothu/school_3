@@ -1,0 +1,59 @@
+---
+const { data, stats = [] } = Astro.props;
+const buttons = data?.buttons?.filter((button) => button.enabled !== false) ?? [];
+const highlights = data?.highlights?.filter((item) => item.enabled !== false) ?? [];
+const statList = Array.isArray(stats) ? stats : stats.items ?? [];
+const visibleStats = statList.filter((stat) => stat.enabled !== false);
+---
+
+{data?.enabled !== false && (
+  <section class="hero">
+    <div class="hero-media" style={`--hero-image: url("${data.backgroundImage}")`} aria-hidden="true"></div>
+    <div class="container hero-content">
+      <div class="hero-copy">
+        {data.eyebrow && <p class="eyebrow">{data.eyebrow}</p>}
+        {data.title && <h1>{data.title}</h1>}
+        {data.text && <p>{data.text}</p>}
+        {buttons.length > 0 && (
+          <div class="button-row">
+            {buttons.map((button) => (
+              <a class={`button button-${button.style ?? "primary"}`} href={button.href}>{button.label}</a>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {data.controls?.enabled !== false && (
+        <div class="hero-controls" aria-label={data.controls?.ariaLabel}>
+          <button type="button" aria-label={data.controls?.previousLabel}>{data.controls?.previousText}</button>
+          <button type="button" aria-label={data.controls?.nextLabel}>{data.controls?.nextText}</button>
+        </div>
+      )}
+    </div>
+
+    {highlights.length > 0 && (
+      <div class="container hero-programs" aria-label={data.highlightsLabel}>
+        {highlights.map((slide) => (
+          <article>
+            <img src={slide.image} alt={slide.alt ?? slide.title} />
+            <div>
+              {slide.label && <span>{slide.label}</span>}
+              <strong>{slide.title}</strong>
+            </div>
+          </article>
+        ))}
+      </div>
+    )}
+
+    {visibleStats.length > 0 && (
+      <div class="container hero-stats" aria-label={data.statisticsLabel}>
+        {visibleStats.map((stat) => (
+          <div>
+            <strong>{stat.value}</strong>
+            <span>{stat.label}</span>
+          </div>
+        ))}
+      </div>
+    )}
+  </section>
+)}

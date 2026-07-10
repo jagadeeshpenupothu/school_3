@@ -1,0 +1,23 @@
+{
+  "enabled": true,
+  "items": [
+    {
+      "enabled": true,
+      "quote": "The teachers know our child deeply and challenge her in ways that feel thoughtful, not pressured.",
+      "name": "Maya Thompson",
+      "role": "Parent"
+    },
+    {
+      "enabled": true,
+      "quote": "school_1 helped me become more confident in class, on stage, and as a student leader.",
+      "name": "Daniel Lee",
+      "role": "Grade 11 Student"
+    },
+    {
+      "enabled": true,
+      "quote": "The school combines strong academics with genuine care for character and belonging.",
+      "name": "Sophia Martinez",
+      "role": "Alumni Parent"
+    }
+  ]
+}

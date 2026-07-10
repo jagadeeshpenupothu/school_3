@@ -1,0 +1,60 @@
+---
+const { data, navigation = [], site } = Astro.props;
+const year = new Date().getFullYear();
+const visibleNavigation = navigation.filter((item) => item.enabled !== false);
+const visibleSocial = site.social?.filter((item) => item.enabled !== false) ?? [];
+const columns = data?.columns?.filter((column) => column.enabled !== false) ?? [];
+const getContactItem = (item) => {
+  const value = site[item.field];
+  if (!value) return null;
+  if (item.field === "email") return { href: `mailto:${value}`, label: value };
+  if (item.field === "phone") return { href: `tel:${value.replace(/[^\d+]/g, "")}`, label: value };
+  return { label: value };
+};
+---
+
+{data?.enabled !== false && (
+  <footer class="footer">
+    <div class="container footer-grid">
+      {data?.brand?.enabled !== false && (
+        <div>
+          <a class="brand footer-brand" href="/">
+            <span class="brand-mark">
+              {site.logo?.image ? <img src={site.logo.image} alt={site.logo.alt ?? site.schoolName} /> : site.logo?.text}
+            </span>
+            <span>{site.schoolName}</span>
+          </a>
+          {data?.brand?.showTagline !== false && <p>{site.tagline}</p>}
+        </div>
+      )}
+
+      {columns.map((column) => (
+        <div>
+          {column.title && <h2>{column.title}</h2>}
+          <ul>
+            {column.type === "navigation" && visibleNavigation.map((item) => (
+              <li><a href={item.href}>{item.label}</a></li>
+            ))}
+            {column.type === "contact" && column.items?.filter((item) => item.enabled !== false).map((item) => {
+              const contact = getContactItem(item);
+              return contact && (
+                <li>{contact.href ? <a href={contact.href}>{contact.label}</a> : contact.label}</li>
+              );
+            })}
+            {column.type === "social" && visibleSocial.map((item) => (
+              <li><a href={item.url}>{item.label}</a></li>
+            ))}
+            {column.type === "custom" && column.links?.filter((item) => item.enabled !== false).map((item) => (
+              <li><a href={item.href}>{item.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    {data?.copyright?.enabled !== false && (
+      <div class="container footer-bottom">
+        <p>{data?.copyright?.prefix} {year} {site.schoolName}. {data?.copyright?.text}</p>
+      </div>
+    )}
+  </footer>
+)}

@@ -1,0 +1,37 @@
+{
+  "colors": {
+    "ink": "#e6ecff",
+    "muted": "#8b96c9",
+    "line": "#1c2440",
+    "paper": "#070a16",
+    "soft": "#0d1226",
+    "primary": "#6d5efc",
+    "primaryDark": "#4f3ff0",
+    "primaryDeep": "#05060f",
+    "secondary": "#22d3ee",
+    "accent": "#00f5d4",
+    "highlight": "#ff5cf4",
+    "navbarBackground": "#070a16",
+    "navbarText": "#e6ecff",
+    "footerBackground": "#05060f",
+    "footerText": "rgba(230, 236, 255, 0.62)",
+    "buttonPrimaryText": "#05060f",
+    "buttonLightBackground": "#0d1226",
+    "buttonLightText": "#e6ecff"
+  },
+  "layout": {
+    "radius": "16px",
+    "container": "1320px"
+  },
+  "shadows": {
+    "default": "0 0 0 1px rgba(109, 94, 252, 0.30), 0 20px 60px rgba(109, 94, 252, 0.22)",
+    "strong": "0 30px 80px rgba(0, 0, 0, 0.60)",
+    "card": "0 12px 40px rgba(0, 0, 0, 0.50)"
+  },
+  "heroOverlay": {
+    "start": "rgba(7, 10, 22, 0.86)",
+    "middle": "rgba(13, 18, 38, 0.58)",
+    "end": "rgba(109, 94, 252, 0.35)",
+    "bottom": "rgba(5, 6, 15, 0.92)"
+  }
+}

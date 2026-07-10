@@ -1,0 +1,136 @@
+{
+  "staff": {
+    "enabled": true,
+    "eyebrow": "Faculty",
+    "title": "Experienced educators and mentors",
+    "text": "Teachers combine subject expertise with care, structure, and curiosity.",
+    "limit": 3
+  },
+  "statistics": {
+    "enabled": true
+  },
+  "about": {
+    "enabled": true,
+    "eyebrow": "About school",
+    "title": "Learning that feels rigorous, human, and connected to real life.",
+    "text": "school_1 is designed for families who want academic strength without losing warmth, creativity, and personal attention. Students learn through clear instruction, thoughtful projects, and meaningful community life.",
+    "image": {
+      "src": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1400&q=82",
+      "alt": "Students learning together on campus"
+    },
+    "buttons": [
+      {
+        "enabled": true,
+        "label": "Our Story",
+        "href": "/about/",
+        "style": "primary"
+      }
+    ]
+  },
+  "page": {
+    "title": "school_1",
+    "description": "Future-ready learning with strong values."
+  },
+  "cta": {
+    "enabled": true,
+    "eyebrow": "Start the conversation",
+    "title": "Discover whether school_1 is the right fit for your family.",
+    "text": "Schedule a tour, ask about admissions, or request program details from our enrollment team.",
+    "buttons": [
+      {
+        "enabled": true,
+        "label": "Contact Admissions",
+        "href": "/contact/",
+        "style": "light"
+      }
+    ]
+  },
+  "gallery": {
+    "enabled": true,
+    "eyebrow": "Campus life",
+    "title": "Moments from our learning community",
+    "text": "Classrooms, labs, arts, athletics, and student-led experiences.",
+    "limit": 4
+  },
+  "testimonials": {
+    "enabled": true,
+    "eyebrow": "Community voices",
+    "title": "Trusted by students and families",
+    "text": "Real stories from the people who know the school best.",
+    "ariaLabel": "Testimonials"
+  },
+  "courses": {
+    "enabled": true,
+    "eyebrow": "Academic pathway",
+    "title": "Programs for every stage",
+    "text": "A clear progression from early foundations to college and career readiness.",
+    "limit": 3
+  },
+  "events": {
+    "enabled": true,
+    "eyebrow": "Upcoming events",
+    "title": "Visit, connect, and celebrate",
+    "text": "Key dates for prospective families, students, and the wider community.",
+    "limit": 2
+  },
+  "hero": {
+    "enabled": true,
+    "buttons": [
+      {
+        "enabled": true,
+        "label": "Schedule a School Visit",
+        "href": "/contact/",
+        "style": "primary"
+      },
+      {
+        "enabled": true,
+        "label": "Explore Classes",
+        "href": "/courses/",
+        "style": "light"
+      }
+    ],
+    "eyebrow": "Admissions open for 2026",
+    "backgroundImage": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1800&q=84",
+    "text": "school_1 blends strong academics, caring teachers, and enriching activities so every child grows with confidence and character.",
+    "statisticsLabel": "School statistics",
+    "highlightsLabel": "School highlights",
+    "controls": {
+      "enabled": true,
+      "ariaLabel": "Hero image controls",
+      "previousLabel": "Previous highlight",
+      "nextLabel": "Next highlight",
+      "previousText": "<",
+      "nextText": ">"
+    },
+    "title": "Learn Today Lead Tomorrow",
+    "highlights": [
+      {
+        "enabled": true,
+        "title": "Bright Classrooms",
+        "label": "Academic excellence",
+        "image": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1400&q=84",
+        "alt": "Students learning in a bright classroom"
+      },
+      {
+        "enabled": true,
+        "title": "Curious Learners",
+        "label": "Inquiry-led programs",
+        "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1400&q=84",
+        "alt": "Students raising hands during a classroom discussion"
+      },
+      {
+        "enabled": true,
+        "title": "Future-Ready Campus",
+        "label": "Leadership and community",
+        "image": "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1400&q=84",
+        "alt": "Students walking across a school campus"
+      }
+    ]
+  },
+  "features": {
+    "enabled": true,
+    "eyebrow": "Why families choose us",
+    "title": "A school environment built for growth",
+    "text": "Premium learning support, modern spaces, and a culture where every student is known."
+  }
+}

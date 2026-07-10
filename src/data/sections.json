@@ -1,0 +1,15 @@
+{
+  "navbar": { "enabled": true },
+  "hero": { "enabled": true },
+  "about": { "enabled": true },
+  "features": { "enabled": true },
+  "courses": { "enabled": true },
+  "gallery": { "enabled": true },
+  "events": { "enabled": true },
+  "staff": { "enabled": true },
+  "testimonials": { "enabled": true },
+  "statistics": { "enabled": true },
+  "cta": { "enabled": true },
+  "contact": { "enabled": true },
+  "footer": { "enabled": true }
+}
