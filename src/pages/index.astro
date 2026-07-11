@@ -1,16 +1,24 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Hero from "@components/Hero.astro";
+import NoticeStrip from "@components/NoticeStrip.astro";
+import QuickActions from "@components/QuickActions.astro";
 import AboutSection from "@components/AboutSection.astro";
 import FeaturesSection from "@components/FeaturesSection.astro";
 import CoursesSection from "@components/CoursesSection.astro";
 import StatsSection from "@components/StatsSection.astro";
+import FactsSection from "@components/FactsSection.astro";
+import LeadershipSection from "@components/LeadershipSection.astro";
+import AdmissionsSection from "@components/AdmissionsSection.astro";
+import InfoSections from "@components/InfoSections.astro";
 import TeachersSection from "@components/TeachersSection.astro";
 import Testimonials from "@components/Testimonials.astro";
 import GallerySection from "@components/GallerySection.astro";
 import EventsSection from "@components/EventsSection.astro";
+import MediaSection from "@components/MediaSection.astro";
 import CTASection from "@components/CTASection.astro";
 import home from "@data/home.json";
+import site from "@data/site.json";
 import sections from "@data/sections.json";
 import courses from "@data/courses.json";
 import features from "@data/features.json";
@@ -19,17 +27,37 @@ import staff from "@data/staff.json";
 import testimonials from "@data/testimonials.json";
 import gallery from "@data/gallery.json";
 import events from "@data/events.json";
+import notices from "@data/notices.json";
+import admissions from "@data/admissions.json";
+import facilities from "@data/facilities.json";
+import studentLife from "@data/student-life.json";
+import achievements from "@data/achievements.json";
+import downloads from "@data/downloads.json";
+import affiliations from "@data/affiliations.json";
+import media from "@data/media.json";
+import transport from "@data/transport.json";
 ---
 
 <BaseLayout title={home.page.title} description={home.page.description}>
+  {sections.announcements?.enabled !== false && <NoticeStrip notices={notices} />}
   {sections.hero?.enabled !== false && home.hero.enabled !== false && <Hero data={home.hero} stats={stats} />}
+  {sections.quickActions?.enabled !== false && <QuickActions actions={site.quickActions} />}
   {sections.about?.enabled !== false && home.about.enabled !== false && <AboutSection data={home.about} />}
-  {sections.features?.enabled !== false && home.features.enabled !== false && <FeaturesSection data={home.features} items={features} />}
-  {sections.courses?.enabled !== false && home.courses.enabled !== false && <CoursesSection data={home.courses} items={courses} />}
+  {sections.leadership?.enabled !== false && home.leadership.enabled !== false && <LeadershipSection intro={home.leadership} staff={staff} />}
   {sections.statistics?.enabled !== false && home.statistics.enabled !== false && <StatsSection data={home.statistics} items={stats} />}
-  {sections.staff?.enabled !== false && home.staff.enabled !== false && <TeachersSection data={home.staff} items={staff} />}
-  {sections.testimonials?.enabled !== false && home.testimonials.enabled !== false && <Testimonials data={home.testimonials} items={testimonials} />}
-  {sections.gallery?.enabled !== false && home.gallery.enabled !== false && <GallerySection data={home.gallery} items={gallery} />}
+  {sections.statistics?.enabled !== false && <FactsSection stats={stats} />}
+  {sections.courses?.enabled !== false && home.courses.enabled !== false && <CoursesSection data={home.courses} items={courses} />}
+  {sections.features?.enabled !== false && home.features.enabled !== false && <FeaturesSection data={home.features} items={features} />}
+  {sections.admissions?.enabled !== false && home.admissions.enabled !== false && <AdmissionsSection intro={home.admissions} admissions={admissions} />}
+  {sections.facilities?.enabled !== false && home.facilities.enabled !== false && <InfoSections intro={home.facilities} items={facilities} limit={4} />}
+  {sections.studentLife?.enabled !== false && home.studentLife.enabled !== false && <InfoSections intro={home.studentLife} items={studentLife} className="section-soft" />}
+  {sections.achievements?.enabled !== false && home.achievements.enabled !== false && <InfoSections intro={home.achievements} items={achievements} />}
   {sections.events?.enabled !== false && home.events.enabled !== false && <EventsSection data={home.events} items={events} />}
+  {sections.downloads?.enabled !== false && <InfoSections intro={{ enabled: true, eyebrow: "Downloads", title: "Circulars, forms and useful documents", text: "Prospectus, admission forms, academic calendar, disclosure, and circulars are CMS-manageable." }} items={downloads} type="downloads" className="section-soft" />}
+  {sections.gallery?.enabled !== false && home.gallery.enabled !== false && <GallerySection data={home.gallery} items={gallery} />}
+  <MediaSection media={media} />
+  {sections.testimonials?.enabled !== false && home.testimonials.enabled !== false && <Testimonials data={home.testimonials} items={testimonials} />}
+  {sections.affiliations?.enabled !== false && <InfoSections intro={{ enabled: true, eyebrow: "Affiliation & Disclosure", title: "Recognition and mandatory disclosure", text: "Official documents should be uploaded only after verification." }} items={affiliations} />}
+  {sections.transport?.enabled !== false && transport.enabled !== false && <InfoSections intro={{ enabled: true, eyebrow: "Transport", title: transport.title, text: transport.description }} items={transport.areasServed.map((area, index) => ({ enabled: true, order: index + 1, title: area, description: index === 0 ? `Transport contact: ${transport.contact}` : "" }))} className="section-soft" />}
   {sections.cta?.enabled !== false && home.cta.enabled !== false && <CTASection data={home.cta} />}
 </BaseLayout>

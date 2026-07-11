@@ -3,7 +3,6 @@ backend:
   branch: main
 
 publish_mode: editorial_workflow
-
 local_backend: true
 
 media_folder: public/assets/uploads
@@ -11,7 +10,6 @@ public_folder: /assets/uploads
 
 site_url: https://dashing-starburst-19f83f.netlify.app
 display_url: https://dashing-starburst-19f83f.netlify.app
-
 logo_url: /favicon.svg
 
 slug:
@@ -23,18 +21,105 @@ editor:
   preview: false
 
 collections:
+  - name: school_identity
+    label: School Identity
+    files:
+      - name: site
+        label: Identity, Contact, Utility Links
+        file: src/data/site.json
+        format: json
+        fields:
+          - { label: School Name, name: schoolName, widget: string }
+          - { label: Tagline, name: tagline, widget: string }
+          - { label: Location, name: location, widget: string }
+          - { label: Board / Curriculum, name: board, widget: string }
+          - { label: School Type, name: schoolType, widget: string }
+          - { label: Affiliation Text, name: affiliationText, widget: text, required: false }
+          - { label: Admission Status, name: admissionStatus, widget: string }
+          - { label: Academic Year, name: academicYear, widget: string }
+          - label: Logo
+            name: logo
+            widget: object
+            fields:
+              - { label: Text Mark, name: text, widget: string, required: false }
+              - { label: Logo Image, name: image, widget: image, allow_multiple: false, required: false }
+              - { label: Alt Text, name: alt, widget: string, required: false }
+          - { label: Favicon, name: favicon, widget: image, allow_multiple: false, required: false }
+          - { label: Social Image, name: socialImage, widget: image, allow_multiple: false, required: false }
+          - { label: Email, name: email, widget: string }
+          - { label: Admissions Email, name: admissionsEmail, widget: string, required: false }
+          - { label: Phone, name: phone, widget: string }
+          - { label: Admissions Phone, name: admissionsPhone, widget: string, required: false }
+          - { label: Address, name: address, widget: text }
+          - { label: Office Hours, name: hours, widget: string }
+          - { label: School Timings, name: schoolTimings, widget: string }
+          - { label: Map Embed URL, name: mapEmbed, widget: string, required: false }
+          - { label: Directions URL, name: directionsUrl, widget: string, required: false }
+          - label: Accessibility Labels
+            name: labels
+            widget: object
+            fields:
+              - { label: Skip Link, name: skipLink, widget: string }
+              - { label: Toggle Navigation, name: toggleNavigation, widget: string }
+              - { label: Main Navigation, name: mainNavigation, widget: string }
+              - { label: School Statistics, name: schoolStatistics, widget: string }
+          - label: Utility Links
+            name: utilityLinks
+            widget: list
+            summary: "{{fields.label}}"
+            fields: &link_fields
+              - { label: Show, name: enabled, widget: boolean, default: true }
+              - { label: Label, name: label, widget: string }
+              - { label: Link, name: href, widget: string, required: false }
+          - label: Quick Actions
+            name: quickActions
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - { label: Show, name: enabled, widget: boolean, default: true }
+              - { label: Label, name: label, widget: string }
+              - { label: Link, name: href, widget: string }
+              - { label: Icon Text, name: icon, widget: string, required: false }
+          - label: Social Links
+            name: social
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - { label: Show, name: enabled, widget: boolean, default: true }
+              - { label: Label, name: label, widget: string }
+              - { label: URL, name: url, widget: string, required: false }
+              - { label: Icon, name: icon, widget: string, required: false }
+
+  - name: navigation
+    label: Navigation
+    files:
+      - name: navigation
+        label: Primary Navigation
+        file: src/data/navigation.json
+        format: json
+        fields:
+          - label: Links
+            name: items
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - { label: Show Link, name: enabled, widget: boolean, default: true }
+              - { label: Label, name: label, widget: string }
+              - { label: Link, name: href, widget: string }
+              - { label: Icon, name: icon, widget: string, required: false }
+
   - name: home
-    label: Home
+    label: Home Page
     files:
       - name: home
-        label: Home Page
+        label: Home Content
         file: src/data/home.json
         format: json
         fields:
           - label: Page Meta
             name: page
             widget: object
-            fields:
+            fields: &page_fields
               - { label: Title, name: title, widget: string }
               - { label: Description, name: description, widget: text }
           - label: Hero
@@ -42,41 +127,44 @@ collections:
             widget: object
             fields:
               - { label: Show Section, name: enabled, widget: boolean, default: true }
-              - { label: Eyebrow, name: eyebrow, widget: string, required: false }
-              - { label: Title, name: title, widget: string }
-              - { label: Text, name: text, widget: text }
-              - { label: Background Image, name: backgroundImage, widget: image, allow_multiple: false }
-              - label: Buttons
-                name: buttons
+              - { label: Autoplay, name: autoplay, widget: boolean, default: true }
+              - { label: Interval in ms, name: interval, widget: number, value_type: int, min: 3000, default: 5500 }
+              - { label: Pause on Hover, name: pauseOnHover, widget: boolean, default: true }
+              - { label: Show Arrows, name: showArrows, widget: boolean, default: true }
+              - { label: Show Indicators, name: showIndicators, widget: boolean, default: true }
+              - label: Slides
+                name: slides
                 widget: list
-                summary: "{{fields.label}}"
+                summary: "{{fields.order}} - {{fields.title}}"
                 fields:
-                  - { label: Show Button, name: enabled, widget: boolean, default: true }
-                  - { label: Label, name: label, widget: string }
-                  - { label: Link, name: href, widget: string }
-                  - { label: Style, name: style, widget: select, options: [primary, light] }
-              - label: Slider Controls
-                name: controls
-                widget: object
-                fields:
-                  - { label: Show Controls, name: enabled, widget: boolean, default: true }
-                  - { label: Aria Label, name: ariaLabel, widget: string }
-                  - { label: Previous Label, name: previousLabel, widget: string }
-                  - { label: Next Label, name: nextLabel, widget: string }
-                  - { label: Previous Icon/Text, name: previousText, widget: string }
-                  - { label: Next Icon/Text, name: nextText, widget: string }
+                  - { label: Show Slide, name: enabled, widget: boolean, default: true }
+                  - { label: Order, name: order, widget: number, value_type: int, required: false }
+                  - { label: Desktop Image, name: image, widget: image, allow_multiple: false }
+                  - { label: Mobile Image, name: mobileImage, widget: image, allow_multiple: false, required: false }
+                  - { label: Image Alt Text, name: imageAlt, widget: string }
+                  - { label: Eyebrow, name: eyebrow, widget: string, required: false }
+                  - { label: Title, name: title, widget: string }
+                  - { label: Description, name: description, widget: text }
+                  - { label: Primary CTA Label, name: primaryCtaLabel, widget: string, required: false }
+                  - { label: Primary CTA URL, name: primaryCtaUrl, widget: string, required: false }
+                  - { label: Secondary CTA Label, name: secondaryCtaLabel, widget: string, required: false }
+                  - { label: Secondary CTA URL, name: secondaryCtaUrl, widget: string, required: false }
+                  - { label: Text Alignment, name: textAlignment, widget: select, options: [left, center, right], default: left }
+                  - { label: Overlay Strength, name: overlayStrength, widget: select, options: [medium, strong], default: medium }
+                  - { label: Focal Position, name: focalPosition, widget: string, required: false, hint: "Example: center center, 40% center" }
               - { label: Statistics Label, name: statisticsLabel, widget: string, required: false }
               - { label: Highlights Label, name: highlightsLabel, widget: string, required: false }
               - label: Highlights
                 name: highlights
                 widget: list
                 summary: "{{fields.title}}"
-                fields:
-                  - { label: Show Highlight, name: enabled, widget: boolean, default: true }
+                fields: &image_card_fields
+                  - { label: Show, name: enabled, widget: boolean, default: true }
+                  - { label: Order, name: order, widget: number, value_type: int, required: false }
                   - { label: Title, name: title, widget: string }
-                  - { label: Label, name: label, widget: string, required: false }
-                  - { label: Image, name: image, widget: image, allow_multiple: false }
-                  - { label: Alt Text, name: alt, widget: string }
+                  - { label: Label / Category, name: label, widget: string, required: false }
+                  - { label: Image, name: image, widget: image, allow_multiple: false, required: false }
+                  - { label: Alt Text, name: alt, widget: string, required: false }
           - label: About Section
             name: about
             widget: object
@@ -96,70 +184,34 @@ collections:
                 name: buttons
                 widget: list
                 required: false
-                summary: "{{fields.label}}"
                 fields: &button_fields
-                  - { label: Show Button, name: enabled, widget: boolean, default: true }
+                  - { label: Show, name: enabled, widget: boolean, default: true }
                   - { label: Label, name: label, widget: string }
                   - { label: Link, name: href, widget: string }
                   - { label: Style, name: style, widget: select, options: [primary, light] }
-          - label: Features Intro
-            name: features
+          - label: Section Intros
+            name: sectionIntrosNote
+            widget: markdown
+            required: false
+            hint: "Edit the objects below for homepage section titles and visibility."
+          - label: Leadership Intro
+            name: leadership
             widget: object
-            fields: &intro_section_fields
+            fields: &intro_fields
               - { label: Show Section, name: enabled, widget: boolean, default: true }
               - { label: Eyebrow, name: eyebrow, widget: string, required: false }
               - { label: Title, name: title, widget: string }
               - { label: Text, name: text, widget: text, required: false }
-          - label: Courses Intro
-            name: courses
-            widget: object
-            fields:
-              - { label: Show Section, name: enabled, widget: boolean, default: true }
-              - { label: Eyebrow, name: eyebrow, widget: string, required: false }
-              - { label: Title, name: title, widget: string }
-              - { label: Text, name: text, widget: text, required: false }
-              - { label: Item Limit, name: limit, widget: number, value_type: int, min: 1, required: false }
-          - label: Statistics
-            name: statistics
-            widget: object
-            fields:
-              - { label: Show Section, name: enabled, widget: boolean, default: true }
-          - label: Staff Intro
-            name: staff
-            widget: object
-            fields:
-              - { label: Show Section, name: enabled, widget: boolean, default: true }
-              - { label: Eyebrow, name: eyebrow, widget: string, required: false }
-              - { label: Title, name: title, widget: string }
-              - { label: Text, name: text, widget: text, required: false }
-              - { label: Item Limit, name: limit, widget: number, value_type: int, min: 1, required: false }
-          - label: Testimonials Intro
-            name: testimonials
-            widget: object
-            fields:
-              - { label: Show Section, name: enabled, widget: boolean, default: true }
-              - { label: Eyebrow, name: eyebrow, widget: string, required: false }
-              - { label: Title, name: title, widget: string }
-              - { label: Text, name: text, widget: text, required: false }
-              - { label: Aria Label, name: ariaLabel, widget: string, required: false }
-          - label: Gallery Intro
-            name: gallery
-            widget: object
-            fields:
-              - { label: Show Section, name: enabled, widget: boolean, default: true }
-              - { label: Eyebrow, name: eyebrow, widget: string, required: false }
-              - { label: Title, name: title, widget: string }
-              - { label: Text, name: text, widget: text, required: false }
-              - { label: Item Limit, name: limit, widget: number, value_type: int, min: 1, required: false }
-          - label: Events Intro
-            name: events
-            widget: object
-            fields:
-              - { label: Show Section, name: enabled, widget: boolean, default: true }
-              - { label: Eyebrow, name: eyebrow, widget: string, required: false }
-              - { label: Title, name: title, widget: string }
-              - { label: Text, name: text, widget: text, required: false }
-              - { label: Item Limit, name: limit, widget: number, value_type: int, min: 1, required: false }
+          - { label: Statistics, name: statistics, widget: object, fields: [{ label: Show Section, name: enabled, widget: boolean, default: true }] }
+          - { label: Courses Intro, name: courses, widget: object, fields: *intro_fields }
+          - { label: Features Intro, name: features, widget: object, fields: *intro_fields }
+          - { label: Admissions Intro, name: admissions, widget: object, fields: *intro_fields }
+          - { label: Facilities Intro, name: facilities, widget: object, fields: *intro_fields }
+          - { label: Student Life Intro, name: studentLife, widget: object, fields: *intro_fields }
+          - { label: Achievements Intro, name: achievements, widget: object, fields: *intro_fields }
+          - { label: Events Intro, name: events, widget: object, fields: *intro_fields }
+          - { label: Gallery Intro, name: gallery, widget: object, fields: *intro_fields }
+          - { label: Testimonials Intro, name: testimonials, widget: object, fields: *intro_fields }
           - label: CTA
             name: cta
             widget: object
@@ -171,27 +223,18 @@ collections:
               - label: Buttons
                 name: buttons
                 widget: list
-                summary: "{{fields.label}}"
                 fields: *button_fields
 
-  - name: about
-    label: About
+  - name: pages
+    label: Subpage Content
     files:
       - name: about
         label: About Page
         file: src/data/about.json
         format: json
         fields:
-          - label: Page Meta
-            name: page
-            widget: object
-            fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Description, name: description, widget: text }
-          - label: Hero
-            name: hero
-            widget: object
-            fields: *intro_section_fields
+          - { label: Page Meta, name: page, widget: object, fields: *page_fields }
+          - { label: Hero, name: hero, widget: object, fields: *intro_fields }
           - label: Story
             name: story
             widget: object
@@ -206,108 +249,21 @@ collections:
               - { label: Eyebrow, name: eyebrow, widget: string, required: false }
               - { label: Title, name: title, widget: string }
               - { label: Text, name: text, widget: text }
-              - { label: Body, name: body, widget: text }
-          - label: Statistics
-            name: statistics
-            widget: object
-            fields:
-              - { label: Show Section, name: enabled, widget: boolean, default: true }
-          - label: Features
-            name: features
-            widget: object
-            fields:
-              - { label: Show Section, name: enabled, widget: boolean, default: true }
-          - label: CTA
-            name: cta
-            widget: object
-            fields:
-              - { label: Show Section, name: enabled, widget: boolean, default: true }
-
-  - name: navigation
-    label: Navigation
-    files:
-      - name: navigation
-        label: Main Navigation
-        file: src/data/navigation.json
-        format: json
-        fields:
-          - label: Links
-            name: items
-            widget: list
-            summary: "{{fields.label}}"
-            fields:
-              - { label: Show Link, name: enabled, widget: boolean, default: true }
-              - { label: Label, name: label, widget: string }
-              - { label: Link, name: href, widget: string }
-              - { label: Icon, name: icon, widget: string, required: false }
-
-  - name: footer
-    label: Footer
-    files:
-      - name: footer
-        label: Footer
-        file: src/data/footer.json
-        format: json
-        fields:
-          - { label: Show Footer, name: enabled, widget: boolean, default: true }
-          - label: Brand
-            name: brand
-            widget: object
-            fields:
-              - { label: Show Brand, name: enabled, widget: boolean, default: true }
-              - { label: Show Tagline, name: showTagline, widget: boolean, default: true }
-          - label: Columns
-            name: columns
-            widget: list
-            summary: "{{fields.title}}"
-            fields:
-              - { label: Show Column, name: enabled, widget: boolean, default: true }
-              - { label: Title, name: title, widget: string }
-              - { label: Type, name: type, widget: select, options: [navigation, contact, social, custom] }
-              - label: Contact Items
-                name: items
-                widget: list
-                required: false
-                summary: "{{fields.field}}"
-                fields:
-                  - { label: Show Item, name: enabled, widget: boolean, default: true }
-                  - { label: Site Field, name: field, widget: select, options: [address, email, phone, hours] }
-              - label: Custom Links
-                name: links
-                widget: list
-                required: false
-                summary: "{{fields.label}}"
-                fields:
-                  - { label: Show Link, name: enabled, widget: boolean, default: true }
-                  - { label: Label, name: label, widget: string }
-                  - { label: Link, name: href, widget: string }
-          - label: Copyright
-            name: copyright
-            widget: object
-            fields:
-              - { label: Show Copyright, name: enabled, widget: boolean, default: true }
-              - { label: Prefix, name: prefix, widget: string, required: false }
-              - { label: Text, name: text, widget: string }
-
-  - name: contact
-    label: Contact
-    files:
+              - { label: Body, name: body, widget: text, required: false }
+          - { label: Vision, name: vision, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }, { label: Title, name: title, widget: string }, { label: Text, name: text, widget: text }] }
+          - { label: Mission, name: mission, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }, { label: Title, name: title, widget: string }, { label: Items, name: items, widget: list, field: { label: Item, name: item, widget: string } }] }
+          - { label: Values, name: values, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }, { label: Items, name: items, widget: list, field: { label: Value, name: value, widget: string } }] }
+          - { label: Statistics, name: statistics, widget: object, fields: [{ label: Show Section, name: enabled, widget: boolean, default: true }] }
+          - { label: Features, name: features, widget: object, fields: [{ label: Show Section, name: enabled, widget: boolean, default: true }] }
+          - { label: CTA, name: cta, widget: object, fields: [{ label: Show Section, name: enabled, widget: boolean, default: true }] }
       - name: contact
         label: Contact Page
         file: src/data/contact.json
         format: json
         fields:
-          - label: Page Meta
-            name: page
-            widget: object
-            fields:
-              - { label: Title, name: title, widget: string }
-              - { label: Description, name: description, widget: text }
-          - label: Hero
-            name: hero
-            widget: object
-            fields: *intro_section_fields
-          - label: Contact Details Display
+          - { label: Page Meta, name: page, widget: object, fields: *page_fields }
+          - { label: Hero, name: hero, widget: object, fields: *intro_fields }
+          - label: Contact Display
             name: contact
             widget: object
             fields:
@@ -333,82 +289,213 @@ collections:
                   - { label: Show Field, name: enabled, widget: boolean, default: true }
                   - { label: Label, name: label, widget: string }
                   - { label: Name, name: name, widget: string }
-                  - { label: Type, name: type, widget: select, options: [text, email, tel, select, textarea] }
+                  - { label: Type, name: type, widget: select, options: [text, email, tel, select, textarea, checkbox] }
                   - { label: Autocomplete, name: autocomplete, widget: string, required: false }
                   - { label: Required, name: required, widget: boolean, default: false }
                   - { label: Rows, name: rows, widget: number, value_type: int, required: false }
                   - { label: Options, name: options, widget: list, required: false, field: { label: Option, name: option, widget: string } }
+      - name: route_pages
+        label: Academics, Events, Gallery, Faculty Pages
+        file: src/data/pages.json
+        format: json
+        fields:
+          - { label: Academics Page, name: courses, widget: object, fields: [{ label: Page Meta, name: page, widget: object, fields: *page_fields }, { label: Hero, name: hero, widget: object, fields: *intro_fields }, { label: Courses Intro, name: courses, widget: object, fields: *intro_fields }, { label: CTA, name: cta, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }] }
+          - { label: Events Page, name: events, widget: object, fields: [{ label: Page Meta, name: page, widget: object, fields: *page_fields }, { label: Hero, name: hero, widget: object, fields: *intro_fields }, { label: Events Intro, name: events, widget: object, fields: *intro_fields }, { label: CTA, name: cta, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }] }
+          - { label: Gallery Page, name: gallery, widget: object, fields: [{ label: Page Meta, name: page, widget: object, fields: *page_fields }, { label: Hero, name: hero, widget: object, fields: *intro_fields }, { label: Gallery Intro, name: gallery, widget: object, fields: *intro_fields }, { label: CTA, name: cta, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }] }
+          - { label: Faculty Page, name: teachers, widget: object, fields: [{ label: Page Meta, name: page, widget: object, fields: *page_fields }, { label: Hero, name: hero, widget: object, fields: *intro_fields }, { label: Staff Intro, name: staff, widget: object, fields: *intro_fields }, { label: CTA, name: cta, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }] }
 
-  - name: courses
-    label: Courses
+  - name: academics
+    label: Academics
     files:
-      - name: courses_content
-        label: Course Cards
+      - name: courses
+        label: Academic Programmes
         file: src/data/courses.json
         format: json
         fields:
-          - { label: Show Courses, name: enabled, widget: boolean, default: true }
-          - label: Courses
+          - { label: Show Academics, name: enabled, widget: boolean, default: true }
+          - label: Programmes
             name: items
             widget: list
             summary: "{{fields.title}}"
             fields:
-              - { label: Show Course, name: enabled, widget: boolean, default: true }
+              - { label: Show, name: enabled, widget: boolean, default: true }
               - { label: Title, name: title, widget: string }
               - { label: Level, name: level, widget: string }
               - { label: Description, name: description, widget: text }
-              - { label: Image, name: image, widget: image, allow_multiple: false }
+              - { label: Image, name: image, widget: image, allow_multiple: false, required: false }
               - { label: Alt Text, name: alt, widget: string, required: false }
-      - name: courses_page
-        label: Courses Page Text
-        file: src/data/pages.json
+      - name: admissions
+        label: Admissions
+        file: src/data/admissions.json
         format: json
         fields:
-          - label: Courses Page
-            name: courses
-            widget: object
-            fields: &subpage_fields
-              - label: Page Meta
-                name: page
-                widget: object
-                fields:
-                  - { label: Title, name: title, widget: string }
-                  - { label: Description, name: description, widget: text }
-              - label: Hero
-                name: hero
-                widget: object
-                fields: *intro_section_fields
-              - label: Section Intro
-                name: courses
-                widget: object
-                required: false
-                fields: *intro_section_fields
-              - label: Events Intro
-                name: events
-                widget: object
-                required: false
-                fields: *intro_section_fields
-              - label: Gallery Intro
-                name: gallery
-                widget: object
-                required: false
-                fields: *intro_section_fields
-              - label: Staff Intro
-                name: staff
-                widget: object
-                required: false
-                fields: *intro_section_fields
-              - label: CTA
-                name: cta
-                widget: object
-                fields:
-                  - { label: Show Section, name: enabled, widget: boolean, default: true }
+          - { label: Show Admissions, name: enabled, widget: boolean, default: true }
+          - { label: Academic Year, name: academicYear, widget: string }
+          - { label: Status, name: status, widget: string }
+          - { label: Classes Open, name: classesOpen, widget: string }
+          - { label: Summary, name: summary, widget: text }
+          - { label: Eligibility, name: eligibility, widget: list, field: { label: Item, name: item, widget: string } }
+          - label: Process
+            name: process
+            widget: list
+            summary: "{{fields.step}} {{fields.title}}"
+            fields: &process_fields
+              - { label: Show, name: enabled, widget: boolean, default: true }
+              - { label: Step, name: step, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - { label: Required Documents, name: documents, widget: list, field: { label: Document, name: document, widget: string } }
+          - { label: Contact Links, name: contacts, widget: list, fields: [{ label: Show, name: enabled, widget: boolean, default: true }, { label: Label, name: label, widget: string }, { label: Value, name: value, widget: string }, { label: Link, name: href, widget: string, required: false }] }
+          - { label: Action Links, name: links, widget: list, fields: *link_fields }
 
-  - name: events
-    label: Events
+  - name: notices_documents
+    label: Notices, Circulars & Downloads
     files:
-      - name: events_content
-        label: Event Cards
+      - name: notices
+        label: Notices and Circulars
+        file: src/data/notices.json
+        format: json
+        fields: &notice_file_fields
+          - { label: Show Section, name: enabled, widget: boolean, default: true }
+          - label: Items
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields: &notice_fields
+              - { label: Show, name: enabled, widget: boolean, default: true }
+              - { label: Order, name: order, widget: number, value_type: int, required: false }
+              - { label: Title, name: title, widget: string }
+              - { label: Description / Text, name: text, widget: text, required: false }
+              - { label: Date, name: date, widget: datetime, format: YYYY-MM-DD, date_format: YYYY-MM-DD, time_format: false }
+              - { label: Expiry Date, name: expiryDate, widget: datetime, format: YYYY-MM-DD, date_format: YYYY-MM-DD, time_format: false, required: false }
+              - { label: Category, name: category, widget: string, required: false }
+              - { label: Important, name: important, widget: boolean, default: false }
+              - { label: New, name: new, widget: boolean, default: false }
+              - { label: PDF / Document, name: file, widget: file, required: false }
+              - { label: External Link, name: externalLink, widget: string, required: false }
+      - name: downloads
+        label: Downloads
+        file: src/data/downloads.json
+        format: json
+        fields:
+          - { label: Show Downloads, name: enabled, widget: boolean, default: true }
+          - label: Items
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Show, name: enabled, widget: boolean, default: true }
+              - { label: Order, name: order, widget: number, value_type: int, required: false }
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text, required: false }
+              - { label: Category, name: category, widget: string, required: false }
+              - { label: Date, name: date, widget: datetime, format: YYYY-MM-DD, date_format: YYYY-MM-DD, time_format: false }
+              - { label: Expiry Date, name: expiryDate, widget: datetime, format: YYYY-MM-DD, date_format: YYYY-MM-DD, time_format: false, required: false }
+              - { label: PDF / Document, name: file, widget: file, required: false }
+              - { label: External Link, name: externalLink, widget: string, required: false }
+              - { label: Important, name: important, widget: boolean, default: false }
+
+  - name: people
+    label: Leadership & Faculty
+    files:
+      - name: staff
+        label: Leadership and Faculty
+        file: src/data/staff.json
+        format: json
+        fields:
+          - { label: Show Staff, name: enabled, widget: boolean, default: true }
+          - label: Faculty Members
+            name: items
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Show, name: enabled, widget: boolean, default: true }
+              - { label: Name, name: name, widget: string }
+              - { label: Role, name: role, widget: string }
+              - { label: Department, name: department, widget: string, required: false }
+              - { label: Qualification, name: qualification, widget: string, required: false }
+              - { label: Experience, name: experience, widget: string, required: false }
+              - { label: Bio, name: bio, widget: text }
+              - { label: Image, name: image, widget: image, allow_multiple: false, required: false }
+              - { label: Alt Text, name: alt, widget: string, required: false }
+          - label: Leadership Messages
+            name: leadership
+            widget: list
+            summary: "{{fields.role}} - {{fields.name}}"
+            fields:
+              - { label: Show, name: enabled, widget: boolean, default: true }
+              - { label: Role, name: role, widget: string }
+              - { label: Name, name: name, widget: string }
+              - { label: Photograph, name: photograph, widget: image, allow_multiple: false, required: false }
+              - { label: Alt Text, name: alt, widget: string, required: false }
+              - { label: Short Message, name: shortMessage, widget: text }
+              - { label: Full Message, name: fullMessage, widget: text, required: false }
+              - { label: Signature, name: signature, widget: string, required: false }
+              - { label: Order, name: order, widget: number, value_type: int, required: false }
+
+  - name: campus_life
+    label: Campus Life
+    files:
+      - { name: facilities, label: Facilities, file: src/data/facilities.json, format: json, fields: &media_collection_fields [{ label: Show Section, name: enabled, widget: boolean, default: true }, { label: Items, name: items, widget: list, summary: "{{fields.title}}", fields: [{ label: Show, name: enabled, widget: boolean, default: true }, { label: Order, name: order, widget: number, value_type: int, required: false }, { label: Title, name: title, widget: string }, { label: Category, name: category, widget: string, required: false }, { label: Description, name: description, widget: text }, { label: Image, name: image, widget: image, allow_multiple: false, required: false }, { label: Alt Text, name: alt, widget: string, required: false }, { label: Gallery, name: gallery, widget: list, required: false, fields: [{ label: Image, name: src, widget: image }, { label: Alt Text, name: alt, widget: string, required: false }, { label: Caption, name: caption, widget: string, required: false }] }, { label: Uploaded Video, name: video, widget: file, required: false }, { label: Video Poster, name: videoPoster, widget: image, required: false }, { label: YouTube URL, name: youtubeUrl, widget: string, required: false }] }] }
+      - { name: student_life, label: Student Life, file: src/data/student-life.json, format: json, fields: *media_collection_fields }
+      - name: achievements
+        label: Achievements and Results
+        file: src/data/achievements.json
+        format: json
+        fields:
+          - { label: Show Section, name: enabled, widget: boolean, default: true }
+          - label: Items
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Show, name: enabled, widget: boolean, default: true }
+              - { label: Order, name: order, widget: number, value_type: int, required: false }
+              - { label: Featured, name: featured, widget: boolean, default: false }
+              - { label: Category, name: category, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Student / Recipient, name: recipient, widget: string, required: false }
+              - { label: Class, name: class, widget: string, required: false }
+              - { label: Year, name: year, widget: string, required: false }
+              - { label: Result / Score, name: result, widget: string, required: false }
+              - { label: Description, name: description, widget: text }
+              - { label: Image, name: image, widget: image, allow_multiple: false, required: false }
+              - { label: Alt Text, name: alt, widget: string, required: false }
+              - { label: Gallery, name: gallery, widget: list, required: false, fields: [{ label: Image, name: src, widget: image }, { label: Alt Text, name: alt, widget: string, required: false }] }
+              - { label: Uploaded Video, name: video, widget: file, required: false }
+              - { label: YouTube URL, name: youtubeUrl, widget: string, required: false }
+              - { label: Certificate / Document, name: certificate, widget: file, required: false }
+
+  - name: news_events_gallery
+    label: News, Events & Gallery
+    files:
+      - name: news
+        label: Latest News
+        file: src/data/news.json
+        format: json
+        fields:
+          - { label: Show News, name: enabled, widget: boolean, default: true }
+          - label: News Items
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields: &news_fields
+              - { label: Show, name: enabled, widget: boolean, default: true }
+              - { label: Order, name: order, widget: number, value_type: int, required: false }
+              - { label: Featured, name: featured, widget: boolean, default: false }
+              - { label: Title, name: title, widget: string }
+              - { label: Date, name: date, widget: datetime, format: YYYY-MM-DD, date_format: YYYY-MM-DD, time_format: false }
+              - { label: Summary, name: summary, widget: text }
+              - { label: Content, name: content, widget: text, required: false }
+              - { label: Image, name: image, widget: image, allow_multiple: false, required: false }
+              - { label: Image Alt, name: imageAlt, widget: string, required: false }
+              - { label: Gallery, name: gallery, widget: list, required: false, fields: [{ label: Image, name: src, widget: image }, { label: Alt Text, name: alt, widget: string, required: false }] }
+              - { label: Uploaded Video, name: video, widget: file, required: false }
+              - { label: YouTube URL, name: youtubeUrl, widget: string, required: false }
+              - { label: Document, name: document, widget: file, required: false }
+              - { label: Category, name: category, widget: string, required: false }
+      - name: events
+        label: Events
         file: src/data/events.json
         format: json
         fields:
@@ -416,29 +503,10 @@ collections:
           - label: Events
             name: items
             widget: list
-            summary: "{{fields.title}} - {{fields.date}}"
-            fields:
-              - { label: Show Event, name: enabled, widget: boolean, default: true }
-              - { label: Title, name: title, widget: string }
-              - { label: Date, name: date, widget: datetime, format: YYYY-MM-DD, date_format: YYYY-MM-DD, time_format: false }
-              - { label: Time, name: time, widget: string, required: false }
-              - { label: Location, name: location, widget: string, required: false }
-              - { label: Description, name: description, widget: text }
-      - name: events_page
-        label: Events Page Text
-        file: src/data/pages.json
-        format: json
-        fields:
-          - label: Events Page
-            name: events
-            widget: object
-            fields: *subpage_fields
-
-  - name: gallery
-    label: Gallery
-    files:
-      - name: gallery_content
-        label: Gallery Images
+            summary: "{{fields.title}}"
+            fields: *news_fields
+      - name: gallery
+        label: Gallery
         file: src/data/gallery.json
         format: json
         fields:
@@ -448,52 +516,88 @@ collections:
             widget: list
             summary: "{{fields.title}}"
             fields:
-              - { label: Show Image, name: enabled, widget: boolean, default: true }
+              - { label: Show, name: enabled, widget: boolean, default: true }
+              - { label: Order, name: order, widget: number, value_type: int, required: false }
+              - { label: Featured, name: featured, widget: boolean, default: false }
               - { label: Title, name: title, widget: string }
+              - { label: Category, name: category, widget: string, required: false }
+              - { label: Date, name: date, widget: string, required: false }
               - { label: Image, name: image, widget: image, allow_multiple: false }
               - { label: Alt Text, name: alt, widget: string }
-      - name: gallery_page
-        label: Gallery Page Text
-        file: src/data/pages.json
+              - { label: Caption, name: caption, widget: string, required: false }
+          - label: Albums
+            name: albums
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Show, name: enabled, widget: boolean, default: true }
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text, required: false }
+              - { label: Cover Image, name: coverImage, widget: image, allow_multiple: false, required: false }
+              - { label: Images, name: images, widget: list, required: false, fields: [{ label: Image, name: src, widget: image }, { label: Alt Text, name: alt, widget: string, required: false }, { label: Caption, name: caption, widget: string, required: false }] }
+              - { label: Order, name: order, widget: number, value_type: int, required: false }
+      - name: media
+        label: Video Gallery and YouTube
+        file: src/data/media.json
         format: json
         fields:
-          - label: Gallery Page
-            name: gallery
-            widget: object
-            fields: *subpage_fields
+          - { label: Show Media, name: enabled, widget: boolean, default: true }
+          - { label: Intro, name: intro, widget: object, fields: *intro_fields }
+          - label: Items
+            name: items
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Show, name: enabled, widget: boolean, default: true }
+              - { label: Order, name: order, widget: number, value_type: int, required: false }
+              - { label: Media Type, name: mediaType, widget: select, options: [image, gallery, video, youtube] }
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text, required: false }
+              - { label: Category, name: category, widget: string, required: false }
+              - { label: Image, name: image, widget: image, required: false }
+              - { label: Image Alt, name: imageAlt, widget: string, required: false }
+              - { label: Uploaded Video, name: video, widget: file, required: false }
+              - { label: Video Poster, name: videoPoster, widget: image, required: false }
+              - { label: YouTube URL, name: youtubeUrl, widget: string, required: false }
 
-  - name: staff
-    label: Staff
+  - name: trust_transport
+    label: Trust, Disclosure & Transport
     files:
-      - name: staff_content
-        label: Staff Profiles
-        file: src/data/staff.json
+      - name: affiliations
+        label: Affiliations and Disclosure
+        file: src/data/affiliations.json
         format: json
         fields:
-          - { label: Show Staff, name: enabled, widget: boolean, default: true }
-          - label: Staff Members
+          - { label: Show Section, name: enabled, widget: boolean, default: true }
+          - label: Items
             name: items
             widget: list
             summary: "{{fields.name}}"
             fields:
-              - { label: Show Profile, name: enabled, widget: boolean, default: true }
+              - { label: Show, name: enabled, widget: boolean, default: true }
+              - { label: Order, name: order, widget: number, value_type: int, required: false }
               - { label: Name, name: name, widget: string }
-              - { label: Role, name: role, widget: string }
-              - { label: Bio, name: bio, widget: text }
-              - { label: Image, name: image, widget: image, allow_multiple: false }
-              - { label: Alt Text, name: alt, widget: string, required: false }
-      - name: teachers_page
-        label: Teachers Page Text
-        file: src/data/pages.json
+              - { label: Logo, name: logo, widget: image, required: false }
+              - { label: Document, name: document, widget: file, required: false }
+              - { label: External Link, name: externalLink, widget: string, required: false }
+              - { label: Description, name: description, widget: text, required: false }
+      - name: transport
+        label: Transport
+        file: src/data/transport.json
         format: json
         fields:
-          - label: Teachers Page
-            name: teachers
-            widget: object
-            fields: *subpage_fields
+          - { label: Show Transport, name: enabled, widget: boolean, default: true }
+          - { label: Transport Available, name: available, widget: boolean, default: true }
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: text }
+          - { label: Areas / Routes Served, name: areasServed, widget: list, field: { label: Area, name: area, widget: string } }
+          - { label: Transport Contact, name: contact, widget: string, required: false }
+          - { label: Safety Information, name: safety, widget: list, field: { label: Item, name: item, widget: string } }
+          - { label: Route Document, name: routeDocument, widget: file, required: false }
+          - { label: CTA, name: cta, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }, { label: Label, name: label, widget: string }, { label: Link, name: href, widget: string }] }
 
-  - name: testimonials
-    label: Testimonials
+  - name: testimonials_stats_footer_theme
+    label: Supporting Content
     files:
       - name: testimonials
         label: Testimonials
@@ -501,155 +605,57 @@ collections:
         format: json
         fields:
           - { label: Show Testimonials, name: enabled, widget: boolean, default: true }
-          - label: Testimonials
-            name: items
-            widget: list
-            summary: "{{fields.name}}"
-            fields:
-              - { label: Show Testimonial, name: enabled, widget: boolean, default: true }
-              - { label: Quote, name: quote, widget: text }
-              - { label: Name, name: name, widget: string }
-              - { label: Role, name: role, widget: string, required: false }
-
-  - name: stats
-    label: Stats
-    files:
+          - { label: Testimonials, name: items, widget: list, summary: "{{fields.name}}", fields: [{ label: Show, name: enabled, widget: boolean, default: true }, { label: Quote, name: quote, widget: text }, { label: Name, name: name, widget: string }, { label: Role, name: role, widget: string, required: false }] }
       - name: stats
-        label: Statistics
+        label: School at a Glance
         file: src/data/stats.json
         format: json
         fields:
           - { label: Show Statistics, name: enabled, widget: boolean, default: true }
-          - label: Statistics
-            name: items
-            widget: list
-            summary: "{{fields.value}} {{fields.label}}"
-            fields:
-              - { label: Show Statistic, name: enabled, widget: boolean, default: true }
-              - { label: Value, name: value, widget: string }
-              - { label: Label, name: label, widget: string }
-
-  - name: theme
-    label: Theme
-    files:
-      - name: site
-        label: Site Identity, Contact, Social Links
-        file: src/data/site.json
+          - { label: Statistics, name: items, widget: list, summary: "{{fields.value}} {{fields.label}}", fields: [{ label: Show, name: enabled, widget: boolean, default: true }, { label: Value, name: value, widget: string }, { label: Label, name: label, widget: string }] }
+          - { label: Institutional Facts, name: facts, widget: list, summary: "{{fields.label}}", fields: [{ label: Show, name: enabled, widget: boolean, default: true }, { label: Label, name: label, widget: string }, { label: Value, name: value, widget: string }] }
+      - name: footer
+        label: Footer
+        file: src/data/footer.json
         format: json
         fields:
-          - { label: School Name, name: schoolName, widget: string }
-          - { label: Tagline, name: tagline, widget: string }
-          - label: Logo
-            name: logo
-            widget: object
-            fields:
-              - { label: Text Mark, name: text, widget: string, required: false }
-              - { label: Logo Image, name: image, widget: image, allow_multiple: false, required: false }
-              - { label: Alt Text, name: alt, widget: string, required: false }
-          - { label: Favicon, name: favicon, widget: image, allow_multiple: false, required: false }
-          - label: Accessibility Labels
-            name: labels
-            widget: object
-            fields:
-              - { label: Skip Link, name: skipLink, widget: string }
-              - { label: Toggle Navigation, name: toggleNavigation, widget: string }
-              - { label: Main Navigation, name: mainNavigation, widget: string }
-              - { label: School Statistics, name: schoolStatistics, widget: string }
-          - { label: Email, name: email, widget: string }
-          - { label: Phone, name: phone, widget: string }
-          - { label: Address, name: address, widget: text }
-          - { label: Hours, name: hours, widget: string }
-          - label: Social Links
-            name: social
-            widget: list
-            summary: "{{fields.label}}"
-            fields:
-              - { label: Show Link, name: enabled, widget: boolean, default: true }
-              - { label: Label, name: label, widget: string }
-              - { label: URL, name: url, widget: string }
-              - { label: Icon, name: icon, widget: string, required: false }
+          - { label: Show Footer, name: enabled, widget: boolean, default: true }
+          - { label: Brand, name: brand, widget: object, fields: [{ label: Show Brand, name: enabled, widget: boolean, default: true }, { label: Show Tagline, name: showTagline, widget: boolean, default: true }] }
+          - { label: Columns, name: columns, widget: list, summary: "{{fields.title}}", fields: [{ label: Show, name: enabled, widget: boolean, default: true }, { label: Title, name: title, widget: string }, { label: Type, name: type, widget: select, options: [navigation, contact, social, custom] }, { label: Contact Items, name: items, widget: list, required: false, fields: [{ label: Show, name: enabled, widget: boolean, default: true }, { label: Site Field, name: field, widget: select, options: [address, email, phone, hours] }] }, { label: Custom Links, name: links, widget: list, required: false, fields: *link_fields }] }
+          - { label: Copyright, name: copyright, widget: object, fields: [{ label: Show Copyright, name: enabled, widget: boolean, default: true }, { label: Prefix, name: prefix, widget: string, required: false }, { label: Text, name: text, widget: string }] }
       - name: theme
-        label: Colors, Layout, Shadows
+        label: Theme
         file: src/data/theme.json
         format: json
         fields:
-          - label: Colors
-            name: colors
-            widget: object
-            fields:
-              - { label: Text, name: ink, widget: color }
-              - { label: Muted Text, name: muted, widget: color }
-              - { label: Lines, name: line, widget: color }
-              - { label: Paper, name: paper, widget: color }
-              - { label: Soft Background, name: soft, widget: color }
-              - { label: Primary, name: primary, widget: color }
-              - { label: Primary Dark, name: primaryDark, widget: color }
-              - { label: Primary Deep, name: primaryDeep, widget: color }
-              - { label: Secondary, name: secondary, widget: color }
-              - { label: Accent, name: accent, widget: color }
-              - { label: Highlight, name: highlight, widget: color }
-              - { label: Navbar Background, name: navbarBackground, widget: color }
-              - { label: Navbar Text, name: navbarText, widget: color }
-              - { label: Footer Background, name: footerBackground, widget: color }
-              - { label: Footer Text, name: footerText, widget: string }
-              - { label: Button Primary Text, name: buttonPrimaryText, widget: color }
-              - { label: Button Light Background, name: buttonLightBackground, widget: color }
-              - { label: Button Light Text, name: buttonLightText, widget: color }
-          - label: Layout
-            name: layout
-            widget: object
-            fields:
-              - { label: Border Radius, name: radius, widget: string }
-              - { label: Container Width, name: container, widget: string }
-          - label: Shadows
-            name: shadows
-            widget: object
-            fields:
-              - { label: Default Shadow, name: default, widget: string }
-              - { label: Strong Shadow, name: strong, widget: string }
-              - { label: Card Shadow, name: card, widget: string }
-          - label: Hero Overlay
-            name: heroOverlay
-            widget: object
-            fields:
-              - { label: Start, name: start, widget: string }
-              - { label: Middle, name: middle, widget: string }
-              - { label: End, name: end, widget: string }
-              - { label: Bottom, name: bottom, widget: string }
-
-  - name: sections
-    label: Sections
-    files:
-      - name: visibility
-        label: Global Section Visibility
+          - { label: Colors, name: colors, widget: object, fields: [{ label: Text, name: ink, widget: color }, { label: Muted Text, name: muted, widget: color }, { label: Lines, name: line, widget: color }, { label: Paper, name: paper, widget: color }, { label: Soft Background, name: soft, widget: color }, { label: Primary, name: primary, widget: color }, { label: Primary Dark, name: primaryDark, widget: color }, { label: Primary Deep, name: primaryDeep, widget: color }, { label: Academic Navy, name: secondary, widget: color }, { label: Warm Gold, name: accent, widget: color }, { label: Soft Gold Background, name: highlight, widget: color }, { label: Navbar Background, name: navbarBackground, widget: color }, { label: Navbar Text, name: navbarText, widget: color }, { label: Footer Background, name: footerBackground, widget: color }, { label: Footer Text, name: footerText, widget: string }, { label: Button Primary Text, name: buttonPrimaryText, widget: color }, { label: Button Light Background, name: buttonLightBackground, widget: color }, { label: Button Light Text, name: buttonLightText, widget: color }] }
+          - { label: Layout, name: layout, widget: object, fields: [{ label: Border Radius, name: radius, widget: string }, { label: Container Width, name: container, widget: string }] }
+          - { label: Shadows, name: shadows, widget: object, fields: [{ label: Default Shadow, name: default, widget: string }, { label: Strong Shadow, name: strong, widget: string }, { label: Card Shadow, name: card, widget: string }] }
+          - { label: Hero Overlay, name: heroOverlay, widget: object, fields: [{ label: Start, name: start, widget: string }, { label: Middle, name: middle, widget: string }, { label: End, name: end, widget: string }, { label: Bottom, name: bottom, widget: string }] }
+      - name: sections
+        label: Section Visibility
         file: src/data/sections.json
         format: json
         fields:
-          - { label: Navbar, name: navbar, widget: object, fields: [{ label: Show Section, name: enabled, widget: boolean, default: true }] }
-          - { label: Hero, name: hero, widget: object, fields: [{ label: Show Section, name: enabled, widget: boolean, default: true }] }
-          - { label: About, name: about, widget: object, fields: [{ label: Show Section, name: enabled, widget: boolean, default: true }] }
-          - { label: Features, name: features, widget: object, fields: [{ label: Show Section, name: enabled, widget: boolean, default: true }] }
-          - { label: Courses, name: courses, widget: object, fields: [{ label: Show Section, name: enabled, widget: boolean, default: true }] }
-          - { label: Gallery, name: gallery, widget: object, fields: [{ label: Show Section, name: enabled, widget: boolean, default: true }] }
-          - { label: Events, name: events, widget: object, fields: [{ label: Show Section, name: enabled, widget: boolean, default: true }] }
-          - { label: Staff, name: staff, widget: object, fields: [{ label: Show Section, name: enabled, widget: boolean, default: true }] }
-          - { label: Testimonials, name: testimonials, widget: object, fields: [{ label: Show Section, name: enabled, widget: boolean, default: true }] }
-          - { label: Statistics, name: statistics, widget: object, fields: [{ label: Show Section, name: enabled, widget: boolean, default: true }] }
-          - { label: CTA, name: cta, widget: object, fields: [{ label: Show Section, name: enabled, widget: boolean, default: true }] }
-          - { label: Contact, name: contact, widget: object, fields: [{ label: Show Section, name: enabled, widget: boolean, default: true }] }
-          - { label: Footer, name: footer, widget: object, fields: [{ label: Show Section, name: enabled, widget: boolean, default: true }] }
-      - name: feature_cards
-        label: Feature Cards
-        file: src/data/features.json
-        format: json
-        fields:
-          - { label: Show Features, name: enabled, widget: boolean, default: true }
-          - label: Features
-            name: items
-            widget: list
-            summary: "{{fields.title}}"
-            fields:
-              - { label: Show Feature, name: enabled, widget: boolean, default: true }
-              - { label: Title, name: title, widget: string }
-              - { label: Description, name: description, widget: text }
-              - { label: Icon, name: icon, widget: string, required: false }
+          - { label: Navbar, name: navbar, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }
+          - { label: Hero, name: hero, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }
+          - { label: Announcements, name: announcements, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }
+          - { label: Quick Actions, name: quickActions, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }
+          - { label: About, name: about, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }
+          - { label: Leadership, name: leadership, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }
+          - { label: Academics, name: courses, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }
+          - { label: Admissions, name: admissions, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }
+          - { label: Facilities, name: facilities, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }
+          - { label: Student Life, name: studentLife, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }
+          - { label: Achievements, name: achievements, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }
+          - { label: Downloads, name: downloads, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }
+          - { label: Gallery, name: gallery, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }
+          - { label: Events, name: events, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }
+          - { label: Staff, name: staff, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }
+          - { label: Testimonials, name: testimonials, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }
+          - { label: Statistics, name: statistics, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }
+          - { label: Affiliations, name: affiliations, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }
+          - { label: Transport, name: transport, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }
+          - { label: Contact, name: contact, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }
+          - { label: CTA, name: cta, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }
+          - { label: Footer, name: footer, widget: object, fields: [{ label: Show, name: enabled, widget: boolean, default: true }] }

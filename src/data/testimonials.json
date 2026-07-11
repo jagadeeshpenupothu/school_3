@@ -3,21 +3,21 @@
   "items": [
     {
       "enabled": true,
-      "quote": "The teachers know our child deeply and challenge her in ways that feel thoughtful, not pressured.",
-      "name": "Maya Thompson",
+      "quote": "The school gives clear information about studies, activities, and notices. It is easy for parents to stay connected.",
+      "name": "Parent of Class V student",
       "role": "Parent"
     },
     {
       "enabled": true,
-      "quote": "school_1 helped me become more confident in class, on stage, and as a student leader.",
-      "name": "Daniel Lee",
-      "role": "Grade 11 Student"
+      "quote": "Teachers encourage us to participate in class, sports, cultural programmes, and competitions.",
+      "name": "Class IX Student",
+      "role": "Student"
     },
     {
       "enabled": true,
-      "quote": "The school combines strong academics with genuine care for character and belonging.",
-      "name": "Sophia Martinez",
-      "role": "Alumni Parent"
+      "quote": "Admissions, documents, timings, and contact information are now easy to find.",
+      "name": "Prospective Parent",
+      "role": "Parent"
     }
   ]
 }

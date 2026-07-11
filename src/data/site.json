@@ -1,25 +1,51 @@
 {
-  "schoolName": "school_1",
-  "tagline": "Future-ready learning with strong values.",
+  "schoolName": "Sri Vidya Vardhini School",
+  "tagline": "Warm learning, strong values, confident futures",
+  "location": "Vijayawada, Andhra Pradesh",
+  "board": "CBSE curriculum from Nursery to Class XII",
+  "schoolType": "Co-educational day school",
+  "affiliationText": "Affiliation details and school codes can be updated by the school office",
+  "admissionStatus": "Admissions Open for 2026-27",
+  "academicYear": "2026-27",
   "logo": {
-    "text": "Z",
+    "text": "SV",
     "image": "",
-    "alt": "school_1 logo"
+    "alt": "Sri Vidya Vardhini School emblem"
   },
   "favicon": "/favicon.svg",
+  "socialImage": "/assets/school3/photos/goa-school-students.jpg",
   "labels": {
     "skipLink": "Skip to content",
     "toggleNavigation": "Toggle navigation",
-    "mainNavigation": "Main navigation",
-    "schoolStatistics": "School statistics"
+    "mainNavigation": "Primary navigation",
+    "schoolStatistics": "School at a glance"
   },
-  "email": "hello@school1.edu",
-  "phone": "+91 98765 43210",
-  "address": "120 Academy Lane, Springfield, USA",
-  "hours": "Mon-Fri, 8:00 AM - 4:30 PM",
+  "email": "office@srividyavardhini.edu.in",
+  "admissionsEmail": "admissions@srividyavardhini.edu.in",
+  "phone": "+91 866 245 6789",
+  "admissionsPhone": "+91 98765 43210",
+  "address": "Near Benz Circle, Vijayawada, Andhra Pradesh 520010",
+  "hours": "Office: Mon-Sat, 9:00 AM - 4:30 PM",
+  "schoolTimings": "School: Mon-Fri, 8:30 AM - 3:30 PM",
+  "mapEmbed": "https://www.google.com/maps?q=Vijayawada%2C%20Andhra%20Pradesh&output=embed",
+  "directionsUrl": "https://www.google.com/maps/search/?api=1&query=Vijayawada%2C%20Andhra%20Pradesh",
+  "utilityLinks": [
+    { "enabled": true, "label": "Admissions Open", "href": "/contact/" },
+    { "enabled": true, "label": "Mandatory Disclosure", "href": "/about/#disclosure" },
+    { "enabled": false, "label": "Parent Portal", "href": "" },
+    { "enabled": false, "label": "Fee Payment", "href": "" }
+  ],
+  "quickActions": [
+    { "enabled": true, "label": "Admissions", "href": "/contact/", "icon": "A" },
+    { "enabled": true, "label": "Enquire Now", "href": "/contact/#enquiry", "icon": "E" },
+    { "enabled": true, "label": "Prospectus", "href": "/assets/uploads/prospectus-info.pdf", "icon": "P" },
+    { "enabled": true, "label": "Disclosure", "href": "/about/#disclosure", "icon": "D" },
+    { "enabled": true, "label": "Transport", "href": "/contact/#transport", "icon": "T" },
+    { "enabled": true, "label": "Contact School", "href": "/contact/", "icon": "C" }
+  ],
   "social": [
     { "enabled": true, "label": "Facebook", "url": "https://facebook.com", "icon": "facebook" },
     { "enabled": true, "label": "Instagram", "url": "https://instagram.com", "icon": "instagram" },
-    { "enabled": true, "label": "LinkedIn", "url": "https://linkedin.com", "icon": "linkedin" }
+    { "enabled": false, "label": "YouTube", "url": "", "icon": "youtube" }
   ]
 }

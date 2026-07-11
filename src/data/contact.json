@@ -1,17 +1,17 @@
 {
   "page": {
     "title": "Contact",
-    "description": "Contact school_1 admissions and administration."
+    "description": "Contact Sri Vidya Vardhini School for admission enquiry, school office, transport information, directions, and parent support."
   },
   "hero": {
     "enabled": true,
     "eyebrow": "Contact",
-    "title": "Plan a visit or ask our admissions team a question.",
-    "text": "We are happy to help with programs, enrollment timelines, campus tours, and student support."
+    "title": "Admission enquiry, office contact and directions.",
+    "text": "Parents can contact the school office, request admission guidance, ask about transport, or plan a campus visit."
   },
   "contact": {
     "enabled": true,
-    "officeTitle": "School office",
+    "officeTitle": "School Office",
     "showAddress": true,
     "showEmail": true,
     "showPhone": true,
@@ -19,21 +19,32 @@
   },
   "form": {
     "enabled": true,
-    "action": "#",
+    "action": "/",
     "method": "post",
-    "submitLabel": "Send Message",
+    "submitLabel": "Submit Enquiry",
     "fields": [
-      { "enabled": true, "label": "Name", "name": "name", "type": "text", "autocomplete": "name", "required": true },
-      { "enabled": true, "label": "Email", "name": "email", "type": "email", "autocomplete": "email", "required": true },
+      { "enabled": true, "label": "Parent / Guardian Name", "name": "parent-name", "type": "text", "autocomplete": "name", "required": true },
+      { "enabled": true, "label": "Student Name", "name": "student-name", "type": "text", "autocomplete": "off", "required": true },
+      { "enabled": true, "label": "Mobile Number", "name": "mobile", "type": "tel", "autocomplete": "tel", "required": true },
+      { "enabled": true, "label": "Email", "name": "email", "type": "email", "autocomplete": "email", "required": false },
       {
         "enabled": true,
-        "label": "Interested program",
-        "name": "program",
+        "label": "Class Seeking Admission",
+        "name": "class",
         "type": "select",
-        "options": ["Early Years", "Primary School", "Middle School", "High School"],
-        "required": false
+        "options": ["Nursery", "LKG", "UKG", "Class I", "Class II", "Class III", "Class IV", "Class V", "Class VI", "Class VII", "Class VIII", "Class IX", "Class X", "Class XI", "Class XII"],
+        "required": true
       },
-      { "enabled": true, "label": "Message", "name": "message", "type": "textarea", "rows": 5, "required": true }
+      {
+        "enabled": true,
+        "label": "Academic Year",
+        "name": "academic-year",
+        "type": "select",
+        "options": ["2026-27", "2027-28"],
+        "required": true
+      },
+      { "enabled": true, "label": "Message", "name": "message", "type": "textarea", "rows": 5, "required": false },
+      { "enabled": true, "label": "I agree to be contacted by the school admission office.", "name": "consent", "type": "checkbox", "required": true }
     ]
   }
 }

@@ -1,0 +1,32 @@
+---
+const { notices = [] } = Astro.props;
+const list = (Array.isArray(notices) ? notices : notices.items ?? [])
+  .filter((item) => item.enabled !== false)
+  .sort((a, b) => (a.order ?? 99) - (b.order ?? 99))
+  .slice(0, 3);
+const primary = list[0];
+const secondary = list.slice(1);
+---
+
+{primary && (
+  <section class="notice-strip" aria-label="Important notices">
+    <div class="container notice-strip-inner">
+      <strong>Latest Updates</strong>
+      <a class="notice-primary" href={primary.externalLink || primary.file || "/events/"}>
+        <span>{primary.category}</span>
+        <b>{primary.title}</b>
+      </a>
+      <div class="notice-meta">
+        {primary.new && <span>New</span>}
+        {primary.important && <span>Important</span>}
+        <time datetime={primary.date}>{primary.date}</time>
+      </div>
+      <div class="notice-strip-list" aria-label="More notices">
+        {secondary.map((notice) => (
+          <a href={notice.externalLink || notice.file || "/events/"}>{notice.title}</a>
+        ))}
+      </div>
+      <a class="notice-all" href="/events/">View All</a>
+    </div>
+  </section>
+)}

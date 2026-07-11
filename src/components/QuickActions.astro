@@ -1,0 +1,17 @@
+---
+const { actions = [] } = Astro.props;
+const list = actions.filter((item) => item.enabled !== false && item.href);
+---
+
+{list.length > 0 && (
+  <section class="quick-actions" aria-label="Parent quick actions">
+    <div class="container quick-actions-grid">
+      {list.map((item) => (
+        <a href={item.href}>
+          <span aria-hidden="true">{item.icon || ">"}</span>
+          <strong>{item.label}</strong>
+        </a>
+      ))}
+    </div>
+  </section>
+)}

@@ -1,0 +1,15 @@
+{
+  "enabled": true,
+  "available": true,
+  "title": "School Transport",
+  "description": "Transport availability, routes, safety practices, and route documents can be updated by the school office.",
+  "areasServed": ["Vijayawada city limits", "Nearby residential areas to be updated"],
+  "contact": "+91 98765 43210",
+  "safety": [
+    "Route details are confirmed by the transport office.",
+    "Pickup and drop points are allotted subject to availability.",
+    "Safety claims such as GPS, CCTV, or attendants should be enabled only when verified."
+  ],
+  "routeDocument": "/assets/uploads/transport-routes-info.pdf",
+  "cta": { "enabled": true, "label": "Ask About Transport", "href": "/contact/#enquiry" }
+}

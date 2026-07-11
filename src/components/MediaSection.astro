@@ -1,0 +1,40 @@
+---
+import SectionHeader from "@components/SectionHeader.astro";
+const { media } = Astro.props;
+const items = media.items?.filter((item) => item.enabled !== false) ?? [];
+const youtubeId = (url) => {
+  if (!url) return "";
+  const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&?/]+)/);
+  return match?.[1] ?? "";
+};
+---
+
+{media?.enabled !== false && media.intro?.enabled !== false && (
+  <section class="section section-soft">
+    <div class="container">
+      <SectionHeader eyebrow={media.intro.eyebrow} title={media.intro.title} text={media.intro.text} />
+      <div class="media-grid">
+        {items.map((item) => {
+          const id = youtubeId(item.youtubeUrl);
+          return (
+            <article>
+              <h3>{item.title}</h3>
+              {item.description && <p>{item.description}</p>}
+              {item.video ? (
+                <video controls playsinline preload="metadata" poster={item.videoPoster || undefined}>
+                  <source src={item.video} />
+                </video>
+              ) : id ? (
+                <iframe src={`https://www.youtube.com/embed/${id}`} title={item.title} loading="lazy" allowfullscreen></iframe>
+              ) : item.videoPoster || item.image ? (
+                <img class="media-poster" src={item.videoPoster || item.image} alt={item.imageAlt ?? item.title} loading="lazy" />
+              ) : (
+                <div class="empty-media">School video space</div>
+              )}
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+)}

@@ -1,0 +1,35 @@
+{
+  "enabled": true,
+  "academicYear": "2026-27",
+  "status": "Admissions Open",
+  "classesOpen": "Nursery, LKG, UKG, Classes I-IX and XI",
+  "summary": "Parents may submit an enquiry, speak with the admission office, collect the prospectus, and schedule a campus visit.",
+  "eligibility": [
+    "Age criteria and class eligibility are confirmed by the admission office.",
+    "Previous school records are required for transfer admissions.",
+    "Admission is subject to seat availability and completion of documents."
+  ],
+  "process": [
+    { "enabled": true, "step": "1", "title": "Submit Enquiry", "text": "Share parent details, student name, class seeking admission, and contact number." },
+    { "enabled": true, "step": "2", "title": "Campus Visit", "text": "Visit the school office to understand curriculum, timings, transport, and facilities." },
+    { "enabled": true, "step": "3", "title": "Interaction and Documents", "text": "Complete the student interaction and submit required documents." },
+    { "enabled": true, "step": "4", "title": "Admission Confirmation", "text": "Admission is confirmed after verification and school office approval." }
+  ],
+  "documents": [
+    "Birth certificate copy",
+    "Transfer certificate, where applicable",
+    "Previous report card",
+    "Aadhaar copy, where applicable",
+    "Passport-size photographs",
+    "Parent/guardian ID proof"
+  ],
+  "contacts": [
+    { "enabled": true, "label": "Admission Office", "value": "+91 98765 43210", "href": "tel:+919876543210" },
+    { "enabled": true, "label": "Admission Email", "value": "admissions@srividyavardhini.edu.in", "href": "mailto:admissions@srividyavardhini.edu.in" }
+  ],
+  "links": [
+    { "enabled": true, "label": "Apply / Enquire Now", "href": "/contact/#enquiry" },
+    { "enabled": true, "label": "Download Prospectus", "href": "/assets/uploads/prospectus-info.pdf" },
+    { "enabled": true, "label": "Contact Admission Office", "href": "/contact/" }
+  ]
+}

@@ -1,37 +1,37 @@
 {
   "colors": {
-    "ink": "#e6ecff",
-    "muted": "#8b96c9",
-    "line": "#1c2440",
-    "paper": "#070a16",
-    "soft": "#0d1226",
-    "primary": "#6d5efc",
-    "primaryDark": "#4f3ff0",
-    "primaryDeep": "#05060f",
-    "secondary": "#22d3ee",
-    "accent": "#00f5d4",
-    "highlight": "#ff5cf4",
-    "navbarBackground": "#070a16",
-    "navbarText": "#e6ecff",
-    "footerBackground": "#05060f",
-    "footerText": "rgba(230, 236, 255, 0.62)",
-    "buttonPrimaryText": "#05060f",
-    "buttonLightBackground": "#0d1226",
-    "buttonLightText": "#e6ecff"
+    "ink": "#202A33",
+    "muted": "#5D6B76",
+    "line": "#A9D6E5",
+    "paper": "#FFFFFF",
+    "soft": "#EFF7FB",
+    "primary": "#01497C",
+    "primaryDark": "#012A4A",
+    "primaryDeep": "#012A4A",
+    "secondary": "#2C7DA0",
+    "accent": "#468FAF",
+    "highlight": "#DDF0F7",
+    "navbarBackground": "#FFFFFF",
+    "navbarText": "#012A4A",
+    "footerBackground": "#012A4A",
+    "footerText": "rgba(255, 255, 255, 0.80)",
+    "buttonPrimaryText": "#FFFFFF",
+    "buttonLightBackground": "#FFFFFF",
+    "buttonLightText": "#01497C"
   },
   "layout": {
-    "radius": "16px",
-    "container": "1320px"
+    "radius": "8px",
+    "container": "1180px"
   },
   "shadows": {
-    "default": "0 0 0 1px rgba(109, 94, 252, 0.30), 0 20px 60px rgba(109, 94, 252, 0.22)",
-    "strong": "0 30px 80px rgba(0, 0, 0, 0.60)",
-    "card": "0 12px 40px rgba(0, 0, 0, 0.50)"
+    "default": "0 16px 40px rgba(1, 42, 74, 0.14)",
+    "strong": "0 24px 70px rgba(1, 42, 74, 0.24)",
+    "card": "0 10px 26px rgba(1, 42, 74, 0.10)"
   },
   "heroOverlay": {
-    "start": "rgba(7, 10, 22, 0.86)",
-    "middle": "rgba(13, 18, 38, 0.58)",
-    "end": "rgba(109, 94, 252, 0.35)",
-    "bottom": "rgba(5, 6, 15, 0.92)"
+    "start": "rgba(1, 42, 74, 0.76)",
+    "middle": "rgba(1, 73, 124, 0.48)",
+    "end": "rgba(1, 42, 74, 0.18)",
+    "bottom": "rgba(1, 42, 74, 0.70)"
   }
 }

@@ -1,0 +1,21 @@
+---
+import SectionHeader from "@components/SectionHeader.astro";
+const { stats } = Astro.props;
+const facts = stats.facts?.filter((item) => item.enabled !== false) ?? [];
+---
+
+{facts.length > 0 && (
+  <section class="section section-soft">
+    <div class="container">
+      <SectionHeader eyebrow="School at a Glance" title="Institutional facts parents look for" text="All numbers and official codes are CMS-managed so the school can publish only verified information." />
+      <div class="facts-grid">
+        {facts.map((item) => (
+          <div>
+            <span>{item.label}</span>
+            <strong>{item.value}</strong>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

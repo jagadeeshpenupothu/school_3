@@ -2,17 +2,30 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import PageHero from "@components/PageHero.astro";
 import GallerySection from "@components/GallerySection.astro";
+import InfoSections from "@components/InfoSections.astro";
+import MediaSection from "@components/MediaSection.astro";
 import CTASection from "@components/CTASection.astro";
 import pages from "@data/pages.json";
 import home from "@data/home.json";
 import sections from "@data/sections.json";
 import gallery from "@data/gallery.json";
+import media from "@data/media.json";
 
 const page = pages.gallery;
+const albums = gallery.albums?.map((album, index) => ({
+  enabled: album.enabled,
+  order: album.order ?? index + 1,
+  title: album.title,
+  description: album.description,
+  image: album.coverImage,
+  alt: album.title
+})) ?? [];
 ---
 
 <BaseLayout title={page.page.title} description={page.page.description}>
   <PageHero data={page.hero} />
   {sections.gallery?.enabled !== false && page.gallery.enabled !== false && <GallerySection data={page.gallery} items={gallery} />}
+  <InfoSections intro={{ enabled: true, eyebrow: "Photo Albums", title: "Albums by school activity", text: "Annual day, sports day, Independence Day, Republic Day, field trips, exhibitions, and competitions can be organised as albums." }} items={albums} className="section-soft" />
+  <MediaSection media={media} />
   {sections.cta?.enabled !== false && page.cta.enabled !== false && <CTASection data={home.cta} />}
 </BaseLayout>

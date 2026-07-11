@@ -1,0 +1,44 @@
+{
+  "enabled": true,
+  "items": [
+    {
+      "enabled": true,
+      "order": 1,
+      "title": "Admissions open for Academic Year 2026-27",
+      "text": "Admission enquiries are open for Nursery to Class XI. Parents may contact the admission office for eligibility and campus visit details.",
+      "date": "2026-07-01",
+      "expiryDate": "2027-03-31",
+      "category": "Admissions",
+      "important": true,
+      "new": true,
+      "file": "",
+      "externalLink": "/contact/#enquiry"
+    },
+    {
+      "enabled": true,
+      "order": 2,
+      "title": "Office timings for parent enquiries",
+      "text": "The school office is open Monday to Saturday from 9:00 AM to 4:30 PM.",
+      "date": "2026-06-20",
+      "expiryDate": "",
+      "category": "Office",
+      "important": false,
+      "new": false,
+      "file": "",
+      "externalLink": "/contact/"
+    },
+    {
+      "enabled": true,
+      "order": 3,
+      "title": "Academic calendar available at school office",
+      "text": "Parents may collect the current academic calendar from the school office or download the shared information sheet.",
+      "date": "2026-06-10",
+      "expiryDate": "",
+      "category": "Circular",
+      "important": false,
+      "new": false,
+      "file": "/assets/uploads/academic-calendar-info.pdf",
+      "externalLink": ""
+    }
+  ]
+}

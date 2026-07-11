@@ -10,11 +10,13 @@ import "@styles/global.css";
 
 const {
   title = site.schoolName,
-  description = site.tagline
+  description = site.tagline,
+  image = site.socialImage
 } = Astro.props;
 
 const navigationItems = Array.isArray(navigation) ? navigation : navigation.items ?? [];
 const pageTitle = title === site.schoolName ? title : `${title} | ${site.schoolName}`;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://example-school.edu").toString();
 const c = theme.colors;
 const themeStyle = `
   --ink: ${c.ink};
@@ -45,21 +47,37 @@ const themeStyle = `
   --radius: ${theme.layout.radius};
   --container: ${theme.layout.container};
 `;
+
+const schoolSchema = {
+  "@context": "https://schema.org",
+  "@type": "School",
+  name: site.schoolName,
+  description,
+  address: site.address,
+  telephone: site.phone,
+  email: site.email,
+  url: canonical,
+  logo: site.logo?.image || site.favicon
+};
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en-IN">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonical} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    {image && <meta property="og:image" content={image} />}
+    <meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
+    {image && <meta name="twitter:image" content={image} />}
     <link rel="icon" type="image/svg+xml" href={site.favicon} />
     <title>{pageTitle}</title>
-    <!-- Netlify Identity: handles admin invite acceptance and redirects logged-in users to /admin/ -->
+    <script type="application/ld+json" set:html={JSON.stringify(schoolSchema)} />
     <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script is:inline>
       if (window.netlifyIdentity) {
@@ -79,6 +97,11 @@ const themeStyle = `
     <main id="main">
       <slot />
     </main>
+    <nav class="mobile-action-bar" aria-label="Quick admission actions">
+      {site.phone && <a href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>Call</a>}
+      <a href="/contact/#enquiry">Enquire</a>
+      <a href="/contact/">Admissions</a>
+    </nav>
     {sections.footer?.enabled !== false && <Footer data={footer} site={site} navigation={navigationItems} />}
   </body>
 </html>

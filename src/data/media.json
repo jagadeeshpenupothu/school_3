@@ -1,0 +1,12 @@
+{
+  "enabled": true,
+  "intro": {
+    "enabled": true,
+    "eyebrow": "Video Gallery",
+    "title": "Video and YouTube support",
+    "text": "Upload videos or add YouTube links from Decap CMS when approved school media is available."
+  },
+  "items": [
+    { "enabled": true, "order": 1, "mediaType": "youtube", "title": "School overview video", "description": "A featured media space for the approved school introduction video.", "category": "Overview", "image": "/assets/school3/photos/hyderabad-school-students.jpg", "imageAlt": "School activity and campus video poster", "video": "", "videoPoster": "/assets/school3/photos/hyderabad-school-students.jpg", "youtubeUrl": "" }
+  ]
+}

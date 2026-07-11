@@ -1,136 +1,179 @@
 {
-  "staff": {
-    "enabled": true,
-    "eyebrow": "Faculty",
-    "title": "Experienced educators and mentors",
-    "text": "Teachers combine subject expertise with care, structure, and curiosity.",
-    "limit": 3
-  },
-  "statistics": {
-    "enabled": true
-  },
-  "about": {
-    "enabled": true,
-    "eyebrow": "About school",
-    "title": "Learning that feels rigorous, human, and connected to real life.",
-    "text": "school_1 is designed for families who want academic strength without losing warmth, creativity, and personal attention. Students learn through clear instruction, thoughtful projects, and meaningful community life.",
-    "image": {
-      "src": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1400&q=82",
-      "alt": "Students learning together on campus"
-    },
-    "buttons": [
-      {
-        "enabled": true,
-        "label": "Our Story",
-        "href": "/about/",
-        "style": "primary"
-      }
-    ]
-  },
   "page": {
-    "title": "school_1",
-    "description": "Future-ready learning with strong values."
-  },
-  "cta": {
-    "enabled": true,
-    "eyebrow": "Start the conversation",
-    "title": "Discover whether school_1 is the right fit for your family.",
-    "text": "Schedule a tour, ask about admissions, or request program details from our enrollment team.",
-    "buttons": [
-      {
-        "enabled": true,
-        "label": "Contact Admissions",
-        "href": "/contact/",
-        "style": "light"
-      }
-    ]
-  },
-  "gallery": {
-    "enabled": true,
-    "eyebrow": "Campus life",
-    "title": "Moments from our learning community",
-    "text": "Classrooms, labs, arts, athletics, and student-led experiences.",
-    "limit": 4
-  },
-  "testimonials": {
-    "enabled": true,
-    "eyebrow": "Community voices",
-    "title": "Trusted by students and families",
-    "text": "Real stories from the people who know the school best.",
-    "ariaLabel": "Testimonials"
-  },
-  "courses": {
-    "enabled": true,
-    "eyebrow": "Academic pathway",
-    "title": "Programs for every stage",
-    "text": "A clear progression from early foundations to college and career readiness.",
-    "limit": 3
-  },
-  "events": {
-    "enabled": true,
-    "eyebrow": "Upcoming events",
-    "title": "Visit, connect, and celebrate",
-    "text": "Key dates for prospective families, students, and the wider community.",
-    "limit": 2
+    "title": "Sri Vidya Vardhini School",
+    "description": "A contemporary Indian school website for a trusted Andhra Pradesh academic institution with admissions, academics, notices, facilities, and parent information."
   },
   "hero": {
     "enabled": true,
-    "buttons": [
+    "autoplay": true,
+    "interval": 5500,
+    "pauseOnHover": true,
+    "showArrows": true,
+    "showIndicators": true,
+    "slides": [
       {
         "enabled": true,
-        "label": "Schedule a School Visit",
-        "href": "/contact/",
-        "style": "primary"
+        "order": 1,
+        "image": "/assets/school3/photos/goa-school-students.jpg",
+        "mobileImage": "",
+        "imageAlt": "Indian students learning in a classroom",
+        "eyebrow": "Admissions Open for Academic Year 2026-27",
+        "title": "Nurturing Knowledge, Character and Confidence",
+        "description": "CBSE-oriented education from Nursery to Class XII with disciplined academics, caring teachers and clear communication for parents.",
+        "primaryCtaLabel": "Admission Enquiry",
+        "primaryCtaUrl": "/contact/#enquiry",
+        "secondaryCtaLabel": "View Admission Process",
+        "secondaryCtaUrl": "/contact/",
+        "textAlignment": "left",
+        "overlayStrength": "strong",
+        "focalPosition": "center center"
       },
       {
         "enabled": true,
-        "label": "Explore Classes",
-        "href": "/courses/",
-        "style": "light"
+        "order": 2,
+        "image": "/assets/school3/photos/chennai-science-festival.jpg",
+        "mobileImage": "",
+        "imageAlt": "Indian students learning in a science laboratory",
+        "eyebrow": "Academics",
+        "title": "Strong Foundations for Every Stage of Learning",
+        "description": "Structured classroom teaching, science learning, library habits and practical activities support academic confidence.",
+        "primaryCtaLabel": "Explore Academics",
+        "primaryCtaUrl": "/courses/",
+        "secondaryCtaLabel": "Meet Faculty",
+        "secondaryCtaUrl": "/teachers/",
+        "textAlignment": "left",
+        "overlayStrength": "medium",
+        "focalPosition": "center center"
+      },
+      {
+        "enabled": true,
+        "order": 3,
+        "image": "/assets/school3/photos/haryana-kho-kho.jpg",
+        "mobileImage": "",
+        "imageAlt": "Students participating in sports and cultural activities",
+        "eyebrow": "Student Life",
+        "title": "Learning Beyond the Classroom",
+        "description": "Sports, cultural programmes, clubs, competitions and assemblies help students grow with confidence.",
+        "primaryCtaLabel": "View Gallery",
+        "primaryCtaUrl": "/gallery/",
+        "secondaryCtaLabel": "News & Events",
+        "secondaryCtaUrl": "/events/",
+        "textAlignment": "left",
+        "overlayStrength": "medium",
+        "focalPosition": "center center"
+      },
+      {
+        "enabled": true,
+        "order": 4,
+        "image": "/assets/school3/photos/hyderabad-school-students.jpg",
+        "mobileImage": "",
+        "imageAlt": "School campus environment with students and transport",
+        "eyebrow": "Campus",
+        "title": "A Safe and Supportive Campus for Growing Minds",
+        "description": "Parent-friendly information on facilities, school timings, transport and contact support is easy to find.",
+        "primaryCtaLabel": "Explore Facilities",
+        "primaryCtaUrl": "/courses/",
+        "secondaryCtaLabel": "Contact School",
+        "secondaryCtaUrl": "/contact/",
+        "textAlignment": "left",
+        "overlayStrength": "strong",
+        "focalPosition": "center center"
       }
     ],
-    "eyebrow": "Admissions open for 2026",
-    "backgroundImage": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1800&q=84",
-    "text": "school_1 blends strong academics, caring teachers, and enriching activities so every child grows with confidence and character.",
-    "statisticsLabel": "School statistics",
-    "highlightsLabel": "School highlights",
-    "controls": {
-      "enabled": true,
-      "ariaLabel": "Hero image controls",
-      "previousLabel": "Previous highlight",
-      "nextLabel": "Next highlight",
-      "previousText": "<",
-      "nextText": ">"
-    },
-    "title": "Learn Today Leading Tomorrow",
+    "statisticsLabel": "School at a glance",
+    "highlightsLabel": "Academic highlights",
     "highlights": [
-      {
-        "enabled": true,
-        "title": "Bright Classrooms",
-        "label": "Academic excellence",
-        "image": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1400&q=84",
-        "alt": "Students learning in a bright classroom"
-      },
-      {
-        "enabled": true,
-        "title": "Curious Learners",
-        "label": "Inquiry-led programs",
-        "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1400&q=84",
-        "alt": "Students raising hands during a classroom discussion"
-      },
-      {
-        "enabled": true,
-        "title": "Future-Ready Campus",
-        "label": "Leadership and community",
-        "image": "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1400&q=84",
-        "alt": "Students walking across a school campus"
-      }
+      { "enabled": true, "title": "Nursery to Class XII", "label": "Classes Offered", "image": "/assets/school3/photos/goa-school-students.jpg", "alt": "Indian school children in class" },
+      { "enabled": true, "title": "Science and Computer Labs", "label": "Facilities", "image": "/assets/school3/photos/chennai-science-festival.jpg", "alt": "Students learning in a science event" },
+      { "enabled": true, "title": "Sports, Arts and Values", "label": "Student Life", "image": "/assets/school3/photos/haryana-kho-kho.jpg", "alt": "Students participating in school sports" }
     ]
+  },
+  "about": {
+    "enabled": true,
+    "eyebrow": "Welcome",
+    "title": "A school built around academic discipline and parent trust.",
+    "text": "Sri Vidya Vardhini School supports children through strong classroom teaching, value-based education, structured assessments, and activities that build confidence beyond textbooks.",
+    "image": {
+      "src": "/assets/school3/photos/hyderabad-school-students.jpg",
+      "alt": "Teacher and students on campus"
+    },
+    "buttons": [
+      { "enabled": true, "label": "Read About the School", "href": "/about/", "style": "primary" }
+    ]
+  },
+  "leadership": {
+    "enabled": true,
+    "eyebrow": "Leadership",
+    "title": "Guidance from experienced school leadership",
+    "text": "A compact leadership message area keeps the focus on school guidance without oversized empty portrait cards."
+  },
+  "statistics": { "enabled": true },
+  "courses": {
+    "enabled": true,
+    "eyebrow": "Academics",
+    "title": "Academic programmes for every stage",
+    "text": "From foundational literacy and numeracy to board-exam readiness, each stage has clear learning goals.",
+    "limit": 4
   },
   "features": {
     "enabled": true,
-    "eyebrow": "Why families choose us",
-    "title": "A school environment built for growth",
-    "text": "Premium learning support, modern spaces, and a culture where every student is known."
+    "eyebrow": "Why Choose Our School",
+    "title": "Organised learning, caring teachers, and useful parent communication",
+    "text": "The website foregrounds the information Indian parents usually need before making an enquiry."
+  },
+  "admissions": {
+    "enabled": true,
+    "eyebrow": "Admissions 2026-27",
+    "title": "Admissions open for Nursery to Class XI",
+    "text": "Parents can enquire online, call the admission office, download the prospectus, and schedule a campus visit."
+  },
+  "facilities": {
+    "enabled": true,
+    "eyebrow": "Campus Facilities",
+    "title": "Facilities that support academics and school life",
+    "text": "Only configured facilities are displayed, with CMS-managed media and descriptions."
+  },
+  "studentLife": {
+    "enabled": true,
+    "eyebrow": "Student Life",
+    "title": "Activities that develop confidence and leadership",
+    "text": "Sports, clubs, assemblies, cultural programmes, and competitions are presented as part of student development."
+  },
+  "achievements": {
+    "enabled": true,
+    "eyebrow": "Achievements & Results",
+    "title": "Student progress and school achievements",
+    "text": "Board results, Olympiads, competitions, sports, arts, and certificates can be highlighted after verification."
+  },
+  "events": {
+    "enabled": true,
+    "eyebrow": "News & Events",
+    "title": "Latest notices, news, and upcoming events",
+    "text": "Parents can quickly scan current notices separately from news and events.",
+    "limit": 3
+  },
+  "gallery": {
+    "enabled": true,
+    "eyebrow": "Campus Gallery",
+    "title": "School life in pictures",
+    "text": "Classroom learning, laboratories, events, sports, and student activities.",
+    "limit": 6
+  },
+  "testimonials": {
+    "enabled": true,
+    "eyebrow": "Parent Voices",
+    "title": "What parents and students say",
+    "text": "Parent and student voices can be updated with approved school content.",
+    "ariaLabel": "Testimonials"
+  },
+  "cta": {
+    "enabled": true,
+    "eyebrow": "Admission Enquiry",
+    "title": "Speak with the admission office for Academic Year 2026-27.",
+    "text": "Share the class you are seeking admission for and the office will guide you through eligibility, documents, campus visit, and next steps.",
+    "buttons": [
+      { "enabled": true, "label": "Enquire Now", "href": "/contact/#enquiry", "style": "light" },
+      { "enabled": true, "label": "Call Admissions", "href": "tel:+919876543210", "style": "primary" }
+    ]
   }
 }

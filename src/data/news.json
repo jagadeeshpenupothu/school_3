@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "items": [
+    { "enabled": true, "order": 1, "featured": true, "title": "Campus visit slots open for prospective parents", "date": "2026-07-05", "summary": "Families seeking admission may book a campus visit through the enquiry form or admission phone number.", "content": "This demo news item can be replaced with verified school updates.", "image": "", "imageAlt": "", "gallery": [], "video": "", "youtubeUrl": "", "document": "", "category": "Admissions" },
+    { "enabled": true, "order": 2, "featured": false, "title": "School activity updates can be posted here", "date": "2026-06-25", "summary": "Use this section for school news distinct from notices and upcoming events.", "content": "", "image": "", "imageAlt": "", "gallery": [], "video": "", "youtubeUrl": "", "document": "", "category": "School News" }
+  ]
+}

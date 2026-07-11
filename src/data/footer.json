@@ -5,11 +5,7 @@
     "showTagline": true
   },
   "columns": [
-    {
-      "enabled": true,
-      "title": "Explore",
-      "type": "navigation"
-    },
+    { "enabled": true, "title": "Explore", "type": "navigation" },
     {
       "enabled": true,
       "title": "Contact",
@@ -17,13 +13,20 @@
       "items": [
         { "enabled": true, "field": "address" },
         { "enabled": true, "field": "email" },
-        { "enabled": true, "field": "phone" }
+        { "enabled": true, "field": "phone" },
+        { "enabled": true, "field": "hours" }
       ]
     },
     {
       "enabled": true,
-      "title": "Follow",
-      "type": "social"
+      "title": "Useful Links",
+      "type": "custom",
+      "links": [
+        { "enabled": true, "label": "Admissions", "href": "/contact/#enquiry" },
+        { "enabled": true, "label": "Mandatory Disclosure", "href": "/about/#disclosure" },
+        { "enabled": true, "label": "Academic Calendar", "href": "/assets/uploads/academic-calendar-info.pdf" },
+        { "enabled": true, "label": "Transport", "href": "/contact/#transport" }
+      ]
     }
   ],
   "copyright": {

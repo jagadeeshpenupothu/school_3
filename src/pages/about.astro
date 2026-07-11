@@ -3,36 +3,50 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import PageHero from "@components/PageHero.astro";
 import SectionHeader from "@components/SectionHeader.astro";
 import StatsSection from "@components/StatsSection.astro";
+import FactsSection from "@components/FactsSection.astro";
 import FeaturesSection from "@components/FeaturesSection.astro";
+import LeadershipSection from "@components/LeadershipSection.astro";
+import InfoSections from "@components/InfoSections.astro";
 import CTASection from "@components/CTASection.astro";
 import about from "@data/about.json";
 import home from "@data/home.json";
 import sections from "@data/sections.json";
 import stats from "@data/stats.json";
 import features from "@data/features.json";
+import staff from "@data/staff.json";
+import affiliations from "@data/affiliations.json";
 ---
 
 <BaseLayout title={about.page.title} description={about.page.description}>
   <PageHero data={about.hero} />
   {about.story.enabled !== false && (
     <section class="section">
-    <div class="container split-layout">
-      <div class="image-frame">
-        <img src={about.story.image.src} alt={about.story.image.alt} loading="lazy" />
+      <div class="container split-layout">
+        <div class="image-frame">
+          <img src={about.story.image.src} alt={about.story.image.alt} loading="lazy" />
+        </div>
+        <div>
+          <SectionHeader align="left" eyebrow={about.story.eyebrow} title={about.story.title} text={about.story.text} />
+          {about.story.body && <p>{about.story.body}</p>}
+        </div>
       </div>
-      <div>
-        <SectionHeader
-          align="left"
-          eyebrow={about.story.eyebrow}
-          title={about.story.title}
-          text={about.story.text}
-        />
-        {about.story.body && <p>{about.story.body}</p>}
-      </div>
-    </div>
     </section>
   )}
+  {(about.vision?.enabled !== false || about.mission?.enabled !== false || about.values?.enabled !== false) && (
+    <section class="section section-soft">
+      <div class="container governance-grid">
+        {about.vision?.enabled !== false && <article><h2>{about.vision.title}</h2><p>{about.vision.text}</p></article>}
+        {about.mission?.enabled !== false && <article><h2>{about.mission.title}</h2><ul>{about.mission.items.map((item) => <li>{item}</li>)}</ul></article>}
+        {about.values?.enabled !== false && <article><h2>Values</h2><div class="value-tags">{about.values.items.map((item) => <span>{item}</span>)}</div></article>}
+      </div>
+    </section>
+  )}
+  {sections.leadership?.enabled !== false && <LeadershipSection intro={home.leadership} staff={staff} />}
   {sections.statistics?.enabled !== false && about.statistics.enabled !== false && <StatsSection data={about.statistics} items={stats} />}
+  <FactsSection stats={stats} />
   {sections.features?.enabled !== false && about.features.enabled !== false && <FeaturesSection data={home.features} items={features} />}
+  <div id="disclosure">
+    <InfoSections intro={{ enabled: true, eyebrow: "Disclosure", title: "Affiliation, recognition and public disclosure", text: "Only verified affiliation numbers, certificates, and disclosure documents should be published here." }} items={affiliations} type="downloads" />
+  </div>
   {sections.cta?.enabled !== false && about.cta.enabled !== false && <CTASection data={home.cta} />}
 </BaseLayout>

@@ -1,0 +1,42 @@
+---
+import SectionHeader from "@components/SectionHeader.astro";
+const { intro, admissions } = Astro.props;
+const process = admissions.process?.filter((item) => item.enabled !== false) ?? [];
+const links = admissions.links?.filter((item) => item.enabled !== false && item.href) ?? [];
+const contacts = admissions.contacts?.filter((item) => item.enabled !== false) ?? [];
+---
+
+{admissions?.enabled !== false && (
+  <section class="section admissions-section" id="admissions">
+    <div class="container admissions-layout">
+      <div>
+        <SectionHeader align="left" eyebrow={intro?.eyebrow} title={intro?.title} text={intro?.text || admissions.summary} />
+        <div class="admission-status">
+          <strong>{admissions.status}</strong>
+          <span>{admissions.academicYear}</span>
+          <span>{admissions.classesOpen}</span>
+        </div>
+        {links.length > 0 && (
+          <div class="button-row">
+            {links.map((item, index) => <a class={`button ${index === 0 ? "button-primary" : "button-light"}`} href={item.href}>{item.label}</a>)}
+          </div>
+        )}
+      </div>
+      <div class="admission-panel">
+        <h3>Admission Process</h3>
+        <ol>
+          {process.map((item) => <li><strong>{item.title}</strong><span>{item.text}</span></li>)}
+        </ol>
+        <h3>Required Documents</h3>
+        <ul>
+          {admissions.documents?.map((item) => <li>{item}</li>)}
+        </ul>
+        {contacts.length > 0 && (
+          <div class="contact-chips">
+            {contacts.map((item) => <a href={item.href}>{item.label}: {item.value}</a>)}
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+)}

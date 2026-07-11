@@ -1,0 +1,8 @@
+{
+  "enabled": true,
+  "items": [
+    { "enabled": true, "order": 1, "featured": true, "category": "Results", "title": "Board results section ready", "recipient": "", "class": "Classes X and XII", "year": "2026", "result": "Verified results to be updated", "description": "Use this CMS section for toppers, pass percentage, subject centums, and official result highlights.", "image": "", "alt": "", "gallery": [], "video": "", "youtubeUrl": "", "certificate": "" },
+    { "enabled": true, "order": 2, "featured": true, "category": "Olympiad", "title": "Olympiad and competition achievements", "recipient": "", "class": "", "year": "2026", "result": "Update after verification", "description": "Student awards, inter-school competitions, and Olympiad recognitions can be displayed here.", "image": "", "alt": "", "gallery": [], "video": "", "youtubeUrl": "", "certificate": "" },
+    { "enabled": true, "order": 3, "featured": false, "category": "Sports", "title": "Sports achievements", "recipient": "", "class": "", "year": "2026", "result": "Update after verification", "description": "Sports day results and external competition achievements can be managed here.", "image": "", "alt": "", "gallery": [], "video": "", "youtubeUrl": "", "certificate": "" }
+  ]
+}

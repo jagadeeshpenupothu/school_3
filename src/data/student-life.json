@@ -1,0 +1,8 @@
+{
+  "enabled": true,
+  "items": [
+    { "enabled": true, "order": 1, "title": "Sports and Games", "category": "Sports", "description": "Regular physical activity, team games, sports day participation, and healthy competition.", "image": "/assets/school3/photos/haryana-kho-kho.jpg", "alt": "Students playing kho-kho at school", "gallery": [], "video": "", "videoPoster": "", "youtubeUrl": "" },
+    { "enabled": true, "order": 2, "title": "Cultural Programmes", "category": "Arts", "description": "Music, dance, art, celebrations, annual day, and festival programmes can be documented here.", "image": "/assets/school3/photos/school-anniversary-activity.jpg", "alt": "Students preparing a school cultural activity", "gallery": [], "video": "", "videoPoster": "", "youtubeUrl": "" },
+    { "enabled": true, "order": 3, "title": "Clubs and Competitions", "category": "Clubs", "description": "Science, literary, arts, quiz, Olympiad, and leadership opportunities for interested students.", "image": "/assets/school3/photos/chennai-science-festival.jpg", "alt": "Students at a science learning event", "gallery": [], "video": "", "videoPoster": "", "youtubeUrl": "" }
+  ]
+}

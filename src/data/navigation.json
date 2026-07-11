@@ -1,46 +1,11 @@
 {
   "items": [
-    {
-      "enabled": true,
-      "label": "Home",
-      "href": "/",
-      "icon": ""
-    },
-    {
-      "enabled": true,
-      "label": "About",
-      "href": "/about/",
-      "icon": ""
-    },
-    {
-      "enabled": true,
-      "label": "Courses",
-      "href": "/courses/",
-      "icon": ""
-    },
-    {
-      "enabled": true,
-      "label": "Staff",
-      "href": "/teachers/",
-      "icon": ""
-    },
-    {
-      "enabled": true,
-      "label": "Events",
-      "href": "/events/",
-      "icon": ""
-    },
-    {
-      "enabled": true,
-      "label": "Gallery",
-      "href": "/gallery/",
-      "icon": ""
-    },
-    {
-      "enabled": true,
-      "label": "Contact",
-      "href": "/contact/",
-      "icon": ""
-    }
+    { "enabled": true, "label": "Home", "href": "/", "icon": "" },
+    { "enabled": true, "label": "About Us", "href": "/about/", "icon": "" },
+    { "enabled": true, "label": "Academics", "href": "/courses/", "icon": "" },
+    { "enabled": true, "label": "Faculty", "href": "/teachers/", "icon": "" },
+    { "enabled": true, "label": "News & Events", "href": "/events/", "icon": "" },
+    { "enabled": true, "label": "Gallery", "href": "/gallery/", "icon": "" },
+    { "enabled": true, "label": "Contact", "href": "/contact/", "icon": "" }
   ]
 }

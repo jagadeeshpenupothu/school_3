@@ -5,33 +5,69 @@
       "enabled": true,
       "name": "Dr. Jagadeesh P",
       "role": "Principal",
-      "bio": "Leads school strategy, academic excellence, and community partnerships.",
-      "image": "/assets/uploads/6_hu_84f008eb20437dca.webp",
-      "alt": "Dr. Amelia Carter"
+      "department": "School Leadership",
+      "qualification": "M.Sc., B.Ed., Ph.D.",
+      "experience": "20+ years",
+      "bio": "Leads academics, teacher development, student discipline, and parent communication.",
+      "image": "",
+      "alt": ""
     },
     {
       "enabled": true,
-      "name": "Marcus Rivera",
+      "name": "Mrs. Kavitha Reddy",
+      "role": "Academic Coordinator",
+      "department": "Primary and Middle School",
+      "qualification": "M.A., B.Ed.",
+      "experience": "15 years",
+      "bio": "Coordinates lesson planning, assessments, academic support, and classroom quality.",
+      "image": "",
+      "alt": ""
+    },
+    {
+      "enabled": true,
+      "name": "Mr. Suresh Kumar",
       "role": "Science Faculty",
-      "bio": "Builds hands-on STEM programs with labs, field research, and design challenges.",
-      "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80",
-      "alt": "Marcus Rivera"
+      "department": "Secondary School",
+      "qualification": "M.Sc., B.Ed.",
+      "experience": "12 years",
+      "bio": "Guides science practicals, experiments, projects, and board-exam preparation.",
+      "image": "",
+      "alt": ""
     },
     {
       "enabled": true,
-      "name": "Nora Patel",
-      "role": "Arts Coordinator",
-      "bio": "Guides visual arts, music, theater, and student exhibitions across grade levels.",
-      "image": "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&w=800&q=80",
-      "alt": "Nora Patel"
+      "name": "Mrs. Anitha Devi",
+      "role": "Pre-primary Coordinator",
+      "department": "Foundational Stage",
+      "qualification": "B.A., Montessori Training",
+      "experience": "10 years",
+      "bio": "Supports joyful early learning, language readiness, routines, and parent orientation.",
+      "image": "",
+      "alt": ""
+    }
+  ],
+  "leadership": [
+    {
+      "enabled": true,
+      "role": "Principal",
+      "name": "Dr. Jagadeesh P",
+      "photograph": "",
+      "alt": "",
+      "shortMessage": "Our priority is to help every student grow through disciplined academics, values, confidence, and meaningful participation.",
+      "fullMessage": "The school office can replace this message with the Principal's approved note, signature, and photograph.",
+      "signature": "",
+      "order": 1
     },
     {
       "enabled": true,
-      "name": "Ethan Brooks",
-      "role": "Student Wellness Lead",
-      "bio": "Supports advisory, counseling, athletics, and wellbeing programs.",
-      "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80",
-      "alt": "Ethan Brooks"
+      "role": "School Management",
+      "name": "Management Committee",
+      "photograph": "",
+      "alt": "",
+      "shortMessage": "Governance information, correspondents, chairman, secretary, or director details can be added when confirmed.",
+      "fullMessage": "",
+      "signature": "",
+      "order": 2
     }
   ]
 }

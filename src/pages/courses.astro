@@ -2,17 +2,24 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import PageHero from "@components/PageHero.astro";
 import CoursesSection from "@components/CoursesSection.astro";
+import InfoSections from "@components/InfoSections.astro";
 import CTASection from "@components/CTASection.astro";
 import pages from "@data/pages.json";
 import home from "@data/home.json";
 import sections from "@data/sections.json";
 import courses from "@data/courses.json";
+import facilities from "@data/facilities.json";
+import downloads from "@data/downloads.json";
 
 const page = pages.courses;
+const methodologyItems = page.methodology.items.map((item, index) => ({ enabled: true, order: index + 1, title: item, description: "" }));
 ---
 
 <BaseLayout title={page.page.title} description={page.page.description}>
   <PageHero data={page.hero} />
   {sections.courses?.enabled !== false && page.courses.enabled !== false && <CoursesSection data={page.courses} items={courses} />}
+  {page.methodology?.enabled !== false && <InfoSections intro={{ enabled: true, eyebrow: "Learning Approach", title: page.methodology.title, text: "Academic practices can be edited as the school's methodology is finalised." }} items={methodologyItems} className="section-soft" />}
+  <InfoSections intro={{ enabled: true, eyebrow: "Labs & Library", title: "Academic facilities", text: "Laboratories, library, computer lab, digital learning, and practical spaces can be maintained here." }} items={facilities} />
+  <InfoSections intro={{ enabled: true, eyebrow: "Academic Resources", title: "Downloads for parents and students", text: "Academic calendar, syllabus, circulars, and exam resources can be uploaded through CMS." }} items={downloads} type="downloads" className="section-soft" />
   {sections.cta?.enabled !== false && page.cta.enabled !== false && <CTASection data={home.cta} />}
 </BaseLayout>

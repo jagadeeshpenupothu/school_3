@@ -1,7 +1,10 @@
 {
   "navbar": { "enabled": true },
   "hero": { "enabled": true },
+  "announcements": { "enabled": true },
+  "quickActions": { "enabled": true },
   "about": { "enabled": true },
+  "leadership": { "enabled": true },
   "features": { "enabled": true },
   "courses": { "enabled": true },
   "gallery": { "enabled": true },
@@ -9,7 +12,14 @@
   "staff": { "enabled": true },
   "testimonials": { "enabled": true },
   "statistics": { "enabled": true },
-  "cta": { "enabled": true },
+  "admissions": { "enabled": true },
+  "facilities": { "enabled": true },
+  "studentLife": { "enabled": true },
+  "achievements": { "enabled": true },
+  "downloads": { "enabled": true },
+  "affiliations": { "enabled": true },
+  "transport": { "enabled": true },
   "contact": { "enabled": true },
+  "cta": { "enabled": true },
   "footer": { "enabled": true }
 }

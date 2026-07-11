@@ -1,24 +1,43 @@
 {
   "page": {
-    "title": "About",
-    "description": "Learn about school_1, our mission, campus, and values."
+    "title": "About Us",
+    "description": "Learn about Sri Vidya Vardhini School, its vision, leadership, values, school facts, and disclosure information."
   },
   "hero": {
     "enabled": true,
-    "eyebrow": "About school_1",
-    "title": "Purposeful education for capable, compassionate students.",
-    "text": "Our school blends academic discipline, creativity, wellbeing, and service so students can grow with confidence."
+    "eyebrow": "About Sri Vidya Vardhini",
+    "title": "A disciplined, caring school community for Andhra Pradesh families.",
+    "text": "Our school combines academic focus, value education, and co-curricular opportunity in an environment designed for confidence and character."
   },
   "story": {
     "enabled": true,
     "image": {
-      "src": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1400&q=82",
-      "alt": "Teacher helping students in a classroom"
+      "src": "/assets/school3/photos/hyderabad-school-students.jpg",
+      "alt": "Indian students participating in a school assembly"
     },
-    "eyebrow": "Mission",
-    "title": "We help students learn deeply and live generously.",
-    "text": "school_1 is built around clear teaching, strong relationships, and opportunities that help students discover what they can contribute.",
-    "body": "The starter content is intentionally structured for future CMS editing. Replace this page copy with your school's story, values, accreditations, leadership message, and admissions details."
+    "eyebrow": "Our Approach",
+    "title": "Academic heritage with modern aspiration.",
+    "text": "The school is organised around clear teaching, regular parent communication, safety, values, and opportunities for every child to participate.",
+    "body": "This demo content is intentionally neutral. The school office can replace it with verified history, management details, recognitions, affiliation numbers, and official policies through Decap CMS."
+  },
+  "vision": {
+    "enabled": true,
+    "title": "Vision",
+    "text": "To prepare confident, responsible learners who value knowledge, discipline, service, and lifelong growth."
+  },
+  "mission": {
+    "enabled": true,
+    "title": "Mission",
+    "items": [
+      "Deliver strong foundational and board-aligned academics.",
+      "Encourage curiosity through laboratories, library use, projects, and digital learning.",
+      "Build character through assemblies, service, sports, arts, and leadership opportunities.",
+      "Maintain transparent communication with parents."
+    ]
+  },
+  "values": {
+    "enabled": true,
+    "items": ["Discipline", "Respect", "Integrity", "Excellence", "Service", "Confidence"]
   },
   "statistics": { "enabled": true },
   "features": { "enabled": true },

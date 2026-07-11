@@ -1,0 +1,7 @@
+{
+  "enabled": true,
+  "items": [
+    { "enabled": true, "order": 1, "name": "Board Affiliation", "logo": "", "document": "", "externalLink": "", "description": "Official board affiliation details should be updated only after verification by the school office." },
+    { "enabled": true, "order": 2, "name": "Mandatory Public Disclosure", "logo": "", "document": "/assets/uploads/disclosure-info.pdf", "externalLink": "", "description": "Public disclosure information can be updated with verified school records through Decap CMS." }
+  ]
+}

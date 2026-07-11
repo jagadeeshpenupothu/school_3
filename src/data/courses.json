@@ -3,35 +3,35 @@
   "items": [
     {
       "enabled": true,
-      "title": "Early Years",
-      "level": "Pre-K to Grade 2",
-      "description": "Play-based discovery, literacy foundations, numeracy, music, art, and social development.",
-      "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1000&q=80",
-      "alt": "Early Years students"
+      "title": "Foundational Stage",
+      "level": "Nursery, LKG and UKG",
+      "description": "Language readiness, numeracy, rhymes, art, activity-based learning, motor skills, and healthy routines.",
+      "image": "/assets/school3/photos/goa-school-students.jpg",
+      "alt": "Young Indian school children in classroom"
     },
     {
       "enabled": true,
       "title": "Primary School",
-      "level": "Grades 3 to 5",
-      "description": "Core academics, project work, reading fluency, creative expression, and teamwork.",
-      "image": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1000&q=80",
-      "alt": "Primary School students"
+      "level": "Classes I to V",
+      "description": "Strong reading, writing, mathematics, EVS, languages, art, general knowledge, and classroom confidence.",
+      "image": "/assets/school3/photos/bengaluru-coding-class.jpg",
+      "alt": "Indian primary school students"
     },
     {
       "enabled": true,
       "title": "Middle School",
-      "level": "Grades 6 to 8",
-      "description": "Inquiry-led science, humanities, mathematics, languages, technology, and advisory support.",
-      "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80",
-      "alt": "Middle School students"
+      "level": "Classes VI to VIII",
+      "description": "Subject foundations in science, mathematics, social science, languages, computer education, and project work.",
+      "image": "/assets/school3/photos/chennai-science-festival.jpg",
+      "alt": "Students using laboratory equipment"
     },
     {
       "enabled": true,
-      "title": "High School",
-      "level": "Grades 9 to 12",
-      "description": "College preparation, advanced electives, leadership pathways, internships, and career guidance.",
-      "image": "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1000&q=80",
-      "alt": "High School students"
+      "title": "Secondary & Senior Secondary",
+      "level": "Classes IX to XII",
+      "description": "Board-exam preparation, practicals, counselling, academic planning, career awareness, and stream readiness.",
+      "image": "/assets/school3/photos/hyderabad-school-students.jpg",
+      "alt": "Senior school students studying"
     }
   ]
 }

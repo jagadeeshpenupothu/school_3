@@ -1,34 +1,57 @@
 ---
 const { site, navigation = [] } = Astro.props;
 const visibleNavigation = navigation.filter((item) => item.enabled !== false);
+const utilityLinks = site.utilityLinks?.filter((item) => item.enabled !== false && item.href) ?? [];
 const phoneHref = site?.phone?.replace(/[^\d+]/g, "");
+const admissionsPhoneHref = site?.admissionsPhone?.replace(/[^\d+]/g, "");
 ---
 
 <header class="site-header">
-  <div class="container nav-shell">
-    <a class="brand" href="/" aria-label={`${site.schoolName} home`}>
-      <span class="brand-mark">
-        {site.logo?.image ? <img src={site.logo.image} alt={site.logo.alt ?? site.schoolName} /> : site.logo?.text}
-      </span>
-      <span>{site.schoolName}</span>
-    </a>
+  <div class="utility-bar">
+    <div class="container utility-inner">
+      <strong>{site.admissionStatus}</strong>
+      <span>{site.schoolTimings}</span>
+      {site.phone && <a href={`tel:${phoneHref}`}>{site.phone}</a>}
+      {site.email && <a href={`mailto:${site.email}`}>{site.email}</a>}
+      {utilityLinks.map((item) => <a href={item.href}>{item.label}</a>)}
+    </div>
+  </div>
 
-    <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label={site.labels?.toggleNavigation} />
-    <label class="nav-button" for="nav-toggle" aria-hidden="true">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
+  <div class="identity-header">
+    <div class="container identity-inner">
+      <a class="brand" href="/" aria-label={`${site.schoolName} home`}>
+        <span class="brand-mark">
+          {site.logo?.image ? <img src={site.logo.image} alt={site.logo.alt ?? site.schoolName} /> : site.logo?.text}
+        </span>
+        <span class="brand-copy">
+          <strong>{site.schoolName}</strong>
+          <small>{site.tagline}</small>
+        </span>
+      </a>
+      <div class="identity-meta" aria-label="School identity">
+        <span>{site.location}</span>
+        <span>{site.board}</span>
+        <span>{site.schoolType}</span>
+      </div>
+      {site.admissionsPhone && <a class="identity-cta" href={`tel:${admissionsPhoneHref}`}>Admission Enquiry</a>}
+    </div>
+  </div>
 
-    <nav class="nav-links" aria-label={site.labels?.mainNavigation}>
-      {visibleNavigation.map((item) => (
-        <a href={item.href}>
-          {item.icon && <span class={`nav-icon nav-icon-${item.icon}`} aria-hidden="true"></span>}
-          {item.label}
-        </a>
-      ))}
-    </nav>
+  <div class="nav-row">
+    <div class="container nav-shell">
+      <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label={site.labels?.toggleNavigation} />
+      <label class="nav-button" for="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+        <b>Menu</b>
+      </label>
 
-    {site.phone && <a class="nav-call" href={`tel:${phoneHref}`}>{site.phone}</a>}
+      <nav class="nav-links" aria-label={site.labels?.mainNavigation}>
+        {visibleNavigation.map((item) => (
+          <a href={item.href}>{item.label}</a>
+        ))}
+      </nav>
+    </div>
   </div>
 </header>

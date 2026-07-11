@@ -3,27 +3,54 @@
   "items": [
     {
       "enabled": true,
-      "title": "Open House",
-      "date": "2026-08-15",
-      "time": "10:00 AM",
-      "location": "Main Campus",
-      "description": "Tour classrooms, meet faculty, and learn about admissions for the next school year."
+      "order": 1,
+      "title": "Admission Counselling Day",
+      "date": "2026-08-03",
+      "time": "10:00 AM - 1:00 PM",
+      "location": "School Office",
+      "description": "Parents can meet the admission office for class eligibility, documents, transport, and campus visit information.",
+      "category": "Admissions",
+      "featured": true,
+      "image": "",
+      "imageAlt": "",
+      "gallery": [],
+      "video": "",
+      "youtubeUrl": "",
+      "document": ""
     },
     {
       "enabled": true,
-      "title": "Science Expo",
+      "order": 2,
+      "title": "Science Exhibition",
       "date": "2026-09-12",
-      "time": "1:00 PM",
-      "location": "Innovation Lab",
-      "description": "Students present research projects, prototypes, and community science work."
+      "time": "10:30 AM",
+      "location": "Science Laboratories",
+      "description": "Students present models, experiments, and classroom projects.",
+      "category": "Academics",
+      "featured": false,
+      "image": "",
+      "imageAlt": "",
+      "gallery": [],
+      "video": "",
+      "youtubeUrl": "",
+      "document": ""
     },
     {
       "enabled": true,
-      "title": "Arts Evening",
-      "date": "2026-10-03",
-      "time": "6:30 PM",
-      "location": "Performing Arts Hall",
-      "description": "A showcase of student music, theater, visual arts, and digital media."
+      "order": 3,
+      "title": "Cultural Programme",
+      "date": "2026-10-24",
+      "time": "5:30 PM",
+      "location": "School Campus",
+      "description": "Music, dance, theatre, and student performances. Final schedule to be updated by the school office.",
+      "category": "Student Life",
+      "featured": false,
+      "image": "",
+      "imageAlt": "",
+      "gallery": [],
+      "video": "",
+      "youtubeUrl": "",
+      "document": ""
     }
   ]
 }

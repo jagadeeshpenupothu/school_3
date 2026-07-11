@@ -1,46 +1,67 @@
 ---
 const { data, stats = [] } = Astro.props;
-const buttons = data?.buttons?.filter((button) => button.enabled !== false) ?? [];
-const highlights = data?.highlights?.filter((item) => item.enabled !== false) ?? [];
+const slides = (data?.slides ?? [])
+  .filter((slide) => slide.enabled !== false && slide.image)
+  .sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
 const statList = Array.isArray(stats) ? stats : stats.items ?? [];
 const visibleStats = statList.filter((stat) => stat.enabled !== false);
+const interval = Number(data?.interval) || 5500;
+const carouselId = `school-carousel-${Math.random().toString(36).slice(2)}`;
 ---
 
-{data?.enabled !== false && (
-  <section class="hero">
-    <div class="hero-media" style={`--hero-image: url("${data.backgroundImage}")`} aria-hidden="true"></div>
-    <div class="container hero-content">
-      <div class="hero-copy">
-        {data.eyebrow && <p class="eyebrow">{data.eyebrow}</p>}
-        {data.title && <h1>{data.title}</h1>}
-        {data.text && <p>{data.text}</p>}
-        {buttons.length > 0 && (
-          <div class="button-row">
-            {buttons.map((button) => (
-              <a class={`button button-${button.style ?? "primary"}`} href={button.href}>{button.label}</a>
-            ))}
+{data?.enabled !== false && slides.length > 0 && (
+  <section
+    class="hero-carousel"
+    id={carouselId}
+    aria-roledescription="carousel"
+    aria-label="School highlights"
+    data-autoplay={data.autoplay !== false ? "true" : "false"}
+    data-interval={interval}
+    data-pause-on-hover={data.pauseOnHover !== false ? "true" : "false"}
+  >
+    <div class="hero-carousel-track">
+      {slides.map((slide, index) => (
+        <article
+          class={`hero-slide hero-slide-${slide.overlayStrength ?? "medium"} ${index === 0 ? "is-active" : ""}`}
+          aria-roledescription="slide"
+          aria-label={`Slide ${index + 1} of ${slides.length}: ${slide.title}`}
+          aria-hidden={index === 0 ? "false" : "true"}
+          data-slide
+        >
+          <picture>
+            {slide.mobileImage && <source media="(max-width: 640px)" srcset={slide.mobileImage} />}
+            <img
+              src={slide.image}
+              alt={slide.imageAlt ?? slide.title}
+              style={`object-position: ${slide.focalPosition ?? "center center"}`}
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchpriority={index === 0 ? "high" : "auto"}
+            />
+          </picture>
+          <div class={`hero-slide-panel hero-align-${slide.textAlignment ?? "left"}`}>
+            {slide.eyebrow && <p class="eyebrow">{slide.eyebrow}</p>}
+            {slide.title && <h1>{slide.title}</h1>}
+            {slide.description && <p>{slide.description}</p>}
+            <div class="button-row">
+              {slide.primaryCtaLabel && slide.primaryCtaUrl && <a class="button button-primary" href={slide.primaryCtaUrl}>{slide.primaryCtaLabel}</a>}
+              {slide.secondaryCtaLabel && slide.secondaryCtaUrl && <a class="button button-light" href={slide.secondaryCtaUrl}>{slide.secondaryCtaLabel}</a>}
+            </div>
           </div>
-        )}
-      </div>
-
-      {data.controls?.enabled !== false && (
-        <div class="hero-controls" aria-label={data.controls?.ariaLabel}>
-          <button type="button" aria-label={data.controls?.previousLabel}>{data.controls?.previousText}</button>
-          <button type="button" aria-label={data.controls?.nextLabel}>{data.controls?.nextText}</button>
-        </div>
-      )}
+        </article>
+      ))}
     </div>
 
-    {highlights.length > 0 && (
-      <div class="container hero-programs" aria-label={data.highlightsLabel}>
-        {highlights.map((slide) => (
-          <article>
-            <img src={slide.image} alt={slide.alt ?? slide.title} />
-            <div>
-              {slide.label && <span>{slide.label}</span>}
-              <strong>{slide.title}</strong>
-            </div>
-          </article>
+    {data.showArrows !== false && slides.length > 1 && (
+      <div class="hero-carousel-arrows" aria-label="Carousel controls">
+        <button type="button" class="carousel-prev" aria-label="Show previous slide">‹</button>
+        <button type="button" class="carousel-next" aria-label="Show next slide">›</button>
+      </div>
+    )}
+
+    {data.showIndicators !== false && slides.length > 1 && (
+      <div class="hero-carousel-indicators" aria-label="Choose slide">
+        {slides.map((slide, index) => (
+          <button type="button" class={index === 0 ? "is-active" : ""} aria-label={`Show slide ${index + 1}: ${slide.title}`} aria-current={index === 0 ? "true" : "false"} data-indicator={index}></button>
         ))}
       </div>
     )}
@@ -55,5 +76,91 @@ const visibleStats = statList.filter((stat) => stat.enabled !== false);
         ))}
       </div>
     )}
+
+    <script is:inline define:vars={{ carouselId }}>
+      (() => {
+        const root = document.getElementById(carouselId);
+        if (!root) return;
+        const slides = Array.from(root.querySelectorAll("[data-slide]"));
+        const indicators = Array.from(root.querySelectorAll("[data-indicator]"));
+        const prev = root.querySelector(".carousel-prev");
+        const next = root.querySelector(".carousel-next");
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+        const autoplay = root.dataset.autoplay === "true" && !reduceMotion.matches;
+        const pauseOnHover = root.dataset.pauseOnHover === "true";
+        const intervalMs = Math.max(Number(root.dataset.interval) || 5500, 3000);
+        let index = 0;
+        let timer = null;
+        let pointerStart = null;
+
+        const setSlide = (nextIndex) => {
+          index = (nextIndex + slides.length) % slides.length;
+          slides.forEach((slide, slideIndex) => {
+            const active = slideIndex === index;
+            slide.classList.toggle("is-active", active);
+            slide.setAttribute("aria-hidden", active ? "false" : "true");
+          });
+          indicators.forEach((button, buttonIndex) => {
+            const active = buttonIndex === index;
+            button.classList.toggle("is-active", active);
+            button.setAttribute("aria-current", active ? "true" : "false");
+          });
+        };
+
+        const stop = () => {
+          if (timer) window.clearInterval(timer);
+          timer = null;
+        };
+
+        const start = () => {
+          stop();
+          if (!autoplay || document.hidden || slides.length < 2) return;
+          timer = window.setInterval(() => setSlide(index + 1), intervalMs);
+        };
+
+        const manual = (nextIndex) => {
+          setSlide(nextIndex);
+          start();
+        };
+
+        prev?.addEventListener("click", () => manual(index - 1));
+        next?.addEventListener("click", () => manual(index + 1));
+        indicators.forEach((button) => {
+          button.addEventListener("click", () => manual(Number(button.dataset.indicator)));
+        });
+
+        root.addEventListener("keydown", (event) => {
+          if (event.key === "ArrowLeft") {
+            event.preventDefault();
+            manual(index - 1);
+          }
+          if (event.key === "ArrowRight") {
+            event.preventDefault();
+            manual(index + 1);
+          }
+        });
+
+        root.addEventListener("pointerdown", (event) => {
+          pointerStart = event.clientX;
+        });
+        root.addEventListener("pointerup", (event) => {
+          if (pointerStart === null) return;
+          const delta = event.clientX - pointerStart;
+          pointerStart = null;
+          if (Math.abs(delta) < 48) return;
+          manual(delta > 0 ? index - 1 : index + 1);
+        });
+
+        if (pauseOnHover) {
+          root.addEventListener("mouseenter", stop);
+          root.addEventListener("mouseleave", start);
+        }
+        root.addEventListener("focusin", stop);
+        root.addEventListener("focusout", start);
+        document.addEventListener("visibilitychange", () => document.hidden ? stop() : start());
+        reduceMotion.addEventListener?.("change", start);
+        start();
+      })();
+    </script>
   </section>
 )}

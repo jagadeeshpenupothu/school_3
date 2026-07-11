@@ -1,77 +1,82 @@
 {
   "courses": {
     "page": {
-      "title": "Courses",
-      "description": "Explore school programs from early years through high school."
+      "title": "Academics",
+      "description": "Explore curriculum, classes, programmes, teaching methods, labs, library, assessments, and academic resources."
     },
     "hero": {
       "enabled": true,
-      "eyebrow": "Courses",
-      "title": "Academic programs for every stage of growth.",
-      "text": "Structured pathways support foundational skills, inquiry, leadership, and college readiness."
+      "eyebrow": "Academics",
+      "title": "Clear academic pathways from Nursery to Class XII.",
+      "text": "The academic page presents curriculum stages, teaching methodology, laboratories, library, assessments, and downloads."
     },
     "courses": {
       "enabled": true,
-      "eyebrow": "Academic pathways",
-      "title": "Programs for every stage",
-      "text": "A clear progression from early foundations to college and career readiness."
+      "eyebrow": "School Stages",
+      "title": "Programmes for every class group",
+      "text": "Terminology and content are aligned to Indian school expectations."
+    },
+    "methodology": {
+      "enabled": true,
+      "title": "Teaching Methodology",
+      "items": ["Concept clarity through classroom instruction", "Activity-based learning in early years", "Regular written practice and assessments", "Practical learning through labs and projects", "Parent updates and academic support"]
     },
     "cta": { "enabled": true }
   },
   "events": {
     "page": {
-      "title": "Events",
-      "description": "View upcoming school events, open houses, and showcases."
+      "title": "News & Events",
+      "description": "View school notices, circulars, latest news, upcoming events, and downloadable documents."
     },
     "hero": {
       "enabled": true,
-      "eyebrow": "Events",
-      "title": "Important dates for families and students.",
-      "text": "Stay connected with admissions events, student showcases, and community celebrations."
+      "eyebrow": "News & Events",
+      "title": "Notices, circulars, news, and important dates.",
+      "text": "Parents can distinguish urgent notices from school news and upcoming events."
     },
     "events": {
       "enabled": true,
-      "eyebrow": "Upcoming events",
-      "title": "Visit, connect, and celebrate",
-      "text": "Key dates for prospective families, students, and the wider community."
+      "eyebrow": "Upcoming Events",
+      "title": "School events and parent dates",
+      "text": "Event details can include category, date, time, location, images, video, YouTube, and documents."
     },
     "cta": { "enabled": true }
   },
   "gallery": {
     "page": {
       "title": "Gallery",
-      "description": "See moments from campus learning, arts, athletics, and student life."
+      "description": "View school photo albums, featured images, uploaded videos, and YouTube media."
     },
     "hero": {
       "enabled": true,
       "eyebrow": "Gallery",
-      "title": "A look inside everyday learning at school_1.",
-      "text": "Use this page to showcase real campus photography as your school content grows."
+      "title": "School life through photos and media.",
+      "text": "Classrooms, laboratories, annual day, sports day, celebrations, trips, competitions, and videos can be managed here."
     },
     "gallery": {
       "enabled": true,
-      "eyebrow": "Campus life",
-      "title": "Moments from our learning community",
-      "text": "Classrooms, labs, arts, athletics, and student-led experiences."
+      "eyebrow": "Photo Gallery",
+      "title": "Featured school moments",
+      "text": "Replace demo-safe media with approved school photography."
     },
     "cta": { "enabled": true }
   },
   "teachers": {
     "page": {
-      "title": "Teachers",
-      "description": "Meet the educators and mentors at school_1."
+      "title": "Faculty & Leadership",
+      "description": "Meet school leadership, faculty, departments, qualifications, experience, and teaching philosophy."
     },
     "hero": {
       "enabled": true,
-      "eyebrow": "Faculty",
-      "title": "Teachers who bring expertise, warmth, and structure.",
-      "text": "Our educators guide students through strong academics and meaningful personal growth."
+      "eyebrow": "Faculty & Leadership",
+      "title": "Experienced educators and responsible school leadership.",
+      "text": "Profiles support leadership roles, departments, qualifications, experience, and teacher introductions."
     },
     "staff": {
       "enabled": true,
       "eyebrow": "Faculty",
-      "title": "Experienced educators and mentors",
-      "text": "Teachers combine subject expertise with care, structure, and curiosity."
+      "title": "Teachers and mentors",
+      "text": "Faculty details are CMS-managed and can be updated as staffing changes."
     },
     "cta": { "enabled": true }
   }

@@ -3,6 +3,8 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import PageHero from "@components/PageHero.astro";
 import site from "@data/site.json";
 import contact from "@data/contact.json";
+import transport from "@data/transport.json";
+import admissions from "@data/admissions.json";
 import sections from "@data/sections.json";
 ---
 
@@ -11,35 +13,70 @@ import sections from "@data/sections.json";
 
   {sections.contact?.enabled !== false && contact.contact.enabled !== false && (
     <section class="section">
-    <div class="container contact-grid">
-      <div class="contact-panel">
-        <h2>{contact.contact.officeTitle}</h2>
-        {contact.contact.showAddress && <p>{site.address}</p>}
-        {contact.contact.showEmail && <p><a href={`mailto:${site.email}`}>{site.email}</a></p>}
-        {contact.contact.showPhone && <p><a href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>{site.phone}</a></p>}
-        {contact.contact.showHours && <p>{site.hours}</p>}
-      </div>
+      <div class="container contact-grid">
+        <div class="contact-panel">
+          <h2>{contact.contact.officeTitle}</h2>
+          {contact.contact.showAddress && <p><strong>Address</strong><br />{site.address}</p>}
+          {contact.contact.showPhone && <p><strong>Office</strong><br /><a href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>{site.phone}</a></p>}
+          {site.admissionsPhone && <p><strong>Admissions</strong><br /><a href={`tel:${site.admissionsPhone.replace(/[^\d+]/g, "")}`}>{site.admissionsPhone}</a></p>}
+          {contact.contact.showEmail && <p><strong>Email</strong><br /><a href={`mailto:${site.email}`}>{site.email}</a><br /><a href={`mailto:${site.admissionsEmail}`}>{site.admissionsEmail}</a></p>}
+          {contact.contact.showHours && <p><strong>Timings</strong><br />{site.hours}<br />{site.schoolTimings}</p>}
+          {site.directionsUrl && <a class="button button-light" href={site.directionsUrl}>Get Directions</a>}
+        </div>
 
-      {contact.form.enabled !== false && (
-        <form class="contact-form" action={contact.form.action} method={contact.form.method}>
-          {contact.form.fields.filter((field) => field.enabled !== false).map((field) => (
-            <label>
-              {field.label}
-              {field.type === "textarea" ? (
-                <textarea name={field.name} rows={field.rows} required={field.required}></textarea>
-              ) : field.type === "select" ? (
-                <select name={field.name} required={field.required}>
-                  {field.options?.map((option) => <option>{option}</option>)}
-                </select>
+        {contact.form.enabled !== false && (
+          <form class="contact-form" id="enquiry" name="admission-enquiry" method={contact.form.method} data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="admission-enquiry" />
+            <p class="hidden-field"><label>Do not fill this field <input name="bot-field" /></label></p>
+            <h2>Admission Enquiry</h2>
+            <p>{admissions.summary}</p>
+            {contact.form.fields.filter((field) => field.enabled !== false).map((field) => (
+              field.type === "checkbox" ? (
+                <label class="checkbox-line"><input type="checkbox" name={field.name} required={field.required} /> <span>{field.label}</span></label>
               ) : (
-                <input type={field.type} name={field.name} autocomplete={field.autocomplete} required={field.required} />
-              )}
-            </label>
-          ))}
-          <button class="button button-primary" type="submit">{contact.form.submitLabel}</button>
-        </form>
-      )}
-    </div>
+                <label>
+                  {field.label}
+                  {field.type === "textarea" ? (
+                    <textarea name={field.name} rows={field.rows} required={field.required}></textarea>
+                  ) : field.type === "select" ? (
+                    <select name={field.name} required={field.required}>
+                      {field.options?.map((option) => <option>{option}</option>)}
+                    </select>
+                  ) : (
+                    <input type={field.type} name={field.name} autocomplete={field.autocomplete} required={field.required} />
+                  )}
+                </label>
+              )
+            ))}
+            <button class="button button-primary" type="submit">{contact.form.submitLabel}</button>
+          </form>
+        )}
+      </div>
+    </section>
+  )}
+
+  {transport.enabled !== false && (
+    <section class="section section-soft" id="transport">
+      <div class="container transport-layout">
+        <div>
+          <p class="eyebrow">Transport</p>
+          <h2>{transport.title}</h2>
+          <p>{transport.description}</p>
+          {transport.routeDocument && <a class="button button-light" href={transport.routeDocument}>Route Document</a>}
+        </div>
+        <div class="contact-panel">
+          <h3>Areas / Safety Notes</h3>
+          <ul>{transport.areasServed.map((item) => <li>{item}</li>)}</ul>
+          <ul>{transport.safety.map((item) => <li>{item}</li>)}</ul>
+          <p><strong>Transport Contact:</strong> {transport.contact}</p>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {site.mapEmbed && (
+    <section class="map-section" aria-label="School location map">
+      <iframe src={site.mapEmbed} title={`${site.schoolName} location map`} loading="lazy"></iframe>
     </section>
   )}
 </BaseLayout>

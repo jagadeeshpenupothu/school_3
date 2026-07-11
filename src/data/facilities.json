@@ -1,0 +1,9 @@
+{
+  "enabled": true,
+  "items": [
+    { "enabled": true, "order": 1, "title": "Smart Classrooms", "description": "Well-lit classrooms with structured teaching support and age-appropriate learning resources.", "image": "/assets/school3/photos/goa-school-students.jpg", "alt": "Indian classroom learning", "gallery": [], "video": "", "videoPoster": "", "youtubeUrl": "" },
+    { "enabled": true, "order": 2, "title": "Science Laboratories", "description": "Practical learning spaces for experiments, observation, and subject confidence.", "image": "/assets/school3/photos/chennai-science-festival.jpg", "alt": "Students participating in a science learning event", "gallery": [], "video": "", "videoPoster": "", "youtubeUrl": "" },
+    { "enabled": true, "order": 3, "title": "Library", "description": "Reading and reference support for language development, projects, and independent study.", "image": "/assets/school3/photos/bengaluru-coding-class.jpg", "alt": "Students learning with computers", "gallery": [], "video": "", "videoPoster": "", "youtubeUrl": "" },
+    { "enabled": true, "order": 4, "title": "Transport", "description": "Transport information and route documents can be updated by the school office.", "image": "/assets/school3/photos/hyderabad-school-students.jpg", "alt": "Students outside a school building", "gallery": [], "video": "", "videoPoster": "", "youtubeUrl": "" }
+  ]
+}

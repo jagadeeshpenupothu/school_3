@@ -1,9 +1,17 @@
 {
   "enabled": true,
   "items": [
-    { "enabled": true, "value": "18:1", "label": "Student teacher ratio" },
-    { "enabled": true, "value": "42", "label": "Clubs and activities" },
-    { "enabled": true, "value": "96%", "label": "College placement" },
-    { "enabled": true, "value": "25+", "label": "Years of excellence" }
+    { "enabled": true, "value": "Nursery-XII", "label": "Classes offered" },
+    { "enabled": true, "value": "CBSE", "label": "Curriculum orientation" },
+    { "enabled": true, "value": "Day School", "label": "School type" },
+    { "enabled": true, "value": "Vijayawada", "label": "Location" }
+  ],
+  "facts": [
+    { "enabled": true, "label": "Medium of Instruction", "value": "English" },
+    { "enabled": true, "label": "Academic Year", "value": "2026-27" },
+    { "enabled": true, "label": "Affiliation Number", "value": "To be updated by school office" },
+    { "enabled": true, "label": "School Code", "value": "To be updated by school office" },
+    { "enabled": true, "label": "Office Hours", "value": "Mon-Sat, 9:00 AM - 4:30 PM" },
+    { "enabled": true, "label": "School Timings", "value": "Mon-Fri, 8:30 AM - 3:30 PM" }
   ]
 }

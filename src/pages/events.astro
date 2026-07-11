@@ -1,18 +1,27 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import PageHero from "@components/PageHero.astro";
+import NoticeStrip from "@components/NoticeStrip.astro";
 import EventsSection from "@components/EventsSection.astro";
+import InfoSections from "@components/InfoSections.astro";
 import CTASection from "@components/CTASection.astro";
 import pages from "@data/pages.json";
 import home from "@data/home.json";
 import sections from "@data/sections.json";
 import events from "@data/events.json";
+import notices from "@data/notices.json";
+import news from "@data/news.json";
+import downloads from "@data/downloads.json";
 
 const page = pages.events;
 ---
 
 <BaseLayout title={page.page.title} description={page.page.description}>
   <PageHero data={page.hero} />
+  <NoticeStrip notices={notices} />
+  <InfoSections intro={{ enabled: true, eyebrow: "Latest Notices", title: "Notices and circulars", text: "Important notices are separate from school news and events." }} items={notices} className="section-soft" />
+  <InfoSections intro={{ enabled: true, eyebrow: "Latest News", title: "School news", text: "News posts can include images, gallery, video, YouTube, document, category, featured status, and order." }} items={news} />
   {sections.events?.enabled !== false && page.events.enabled !== false && <EventsSection data={page.events} items={events} />}
+  <InfoSections intro={{ enabled: true, eyebrow: "Circulars & Downloads", title: "Documents for parents", text: "Circulars, holiday lists, calendars, newsletters, and policies can be uploaded here." }} items={downloads} type="downloads" className="section-soft" />
   {sections.cta?.enabled !== false && page.cta.enabled !== false && <CTASection data={home.cta} />}
 </BaseLayout>

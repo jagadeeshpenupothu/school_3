@@ -1,0 +1,9 @@
+{
+  "enabled": true,
+  "items": [
+    { "enabled": true, "order": 1, "title": "Prospectus Information Sheet", "description": "A parent-friendly admissions information sheet with programme overview and enquiry steps.", "category": "Admissions", "date": "2026-07-01", "expiryDate": "", "file": "/assets/uploads/prospectus-info.pdf", "externalLink": "", "important": true },
+    { "enabled": true, "order": 2, "title": "Admission Enquiry Form", "description": "A printable enquiry form for parents who prefer to submit details at the school office.", "category": "Admissions", "date": "2026-07-01", "expiryDate": "", "file": "/assets/uploads/admission-enquiry-form.pdf", "externalLink": "", "important": true },
+    { "enabled": true, "order": 3, "title": "Academic Calendar Information", "description": "A concise academic calendar information sheet for parent reference.", "category": "Academics", "date": "2026-06-15", "expiryDate": "", "file": "/assets/uploads/academic-calendar-info.pdf", "externalLink": "", "important": false },
+    { "enabled": true, "order": 4, "title": "Public Disclosure Information", "description": "Disclosure information for families. Official school records should be verified by the administration before publication.", "category": "Disclosure", "date": "2026-06-01", "expiryDate": "", "file": "/assets/uploads/disclosure-info.pdf", "externalLink": "", "important": true }
+  ]
+}
